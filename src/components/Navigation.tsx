@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useEffect, useState } from 'react';
@@ -15,9 +16,8 @@ export function Navigation() {
       setCurrentHash(window.location.hash);
     };
 
-    handleHashChange(); // Check initial hash
+    handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
-    // Also check on mount in case we navigated from another page with a hash
     window.addEventListener('popstate', handleHashChange);
     
     return () => {
@@ -42,7 +42,7 @@ export function Navigation() {
 
   const getIsActive = (href: string) => {
     if (href === '/') {
-      return pathname === '/' && currentHash === '';
+      return pathname === '/' && (currentHash === '' || currentHash === '#about');
     }
     if (href === '/#work') {
       return pathname === '/' && currentHash === '#work';
@@ -52,16 +52,16 @@ export function Navigation() {
 
   return (
     <div className="fixed top-8 left-0 w-full flex justify-center z-50 px-6">
-      <nav className="w-full max-w-5xl glass-nav bg-grain px-8 py-3 flex items-center justify-between rounded-2xl">
+      <nav className="w-full max-w-5xl glass-nav bg-grain px-8 py-3 flex items-center justify-between rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         {/* Logo and Main Nav */}
         <div className="flex items-center gap-10">
           <Link href="/" className="flex items-center group">
-            <div className="text-secondary group-hover:scale-110 transition-transform">
-              <Gamepad2 size={32} strokeWidth={2.5} fill="currentColor" className="opacity-80" />
+            <div className="text-primary group-hover:scale-110 transition-transform">
+              <Gamepad2 size={36} strokeWidth={2.5} fill="currentColor" className="opacity-90" />
             </div>
           </Link>
 
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-4">
             {links.map(({ href, label }) => {
               const isActive = getIsActive(href);
 
@@ -70,11 +70,10 @@ export function Navigation() {
                   key={href}
                   href={href}
                   className={cn(
-                    "relative px-6 py-2 text-lg font-bold transition-all font-playful tracking-wide hover:scale-105",
-                    isActive ? "text-secondary-foreground" : "text-secondary/70 hover:text-secondary"
+                    "relative px-6 py-2 text-xl font-bold transition-all font-playful tracking-wide hover:scale-105",
+                    isActive ? "text-white" : "text-secondary/70 hover:text-secondary"
                   )}
                   onClick={() => {
-                    // Manually set hash for immediate feedback if it's an internal hash link
                     if (href.includes('#')) {
                       setCurrentHash('#' + href.split('#')[1]);
                     } else {
@@ -83,7 +82,7 @@ export function Navigation() {
                   }}
                 >
                   {isActive && (
-                    <div className="absolute inset-0 bg-secondary rounded-full -z-10 animate-fade-in shadow-lg shadow-secondary/20" />
+                    <div className="absolute inset-0 bg-secondary rounded-full -z-10 animate-fade-in shadow-lg shadow-secondary/40" />
                   )}
                   {label}
                 </Link>
@@ -93,7 +92,7 @@ export function Navigation() {
         </div>
 
         {/* Social Icons with Blob Hover */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           {socials.map((social, i) => (
             <a 
               key={i}
@@ -102,7 +101,7 @@ export function Navigation() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <social.icon size={20} strokeWidth={2.5} />
+              <social.icon size={22} strokeWidth={2.5} />
             </a>
           ))}
         </div>

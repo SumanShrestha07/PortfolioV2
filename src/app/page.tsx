@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -31,26 +32,26 @@ export default function Home() {
     <div className="flex-1 flex flex-col">
       <Navigation />
       
-      <main className="flex-1 space-y-24">
+      <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative min-h-screen w-full overflow-hidden flex items-center pt-32 pb-20">
+        <section className="relative w-full overflow-hidden flex flex-col pt-40 pb-16">
           <Image 
             src={PlaceHolderImages[0].imageUrl}
             alt="Hero Background"
             fill
-            className="object-cover opacity-60"
+            className="object-cover opacity-70"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           
-          <div className="relative z-10 max-w-7xl mx-auto w-full px-6 space-y-4">
+          <div className="relative z-10 max-w-7xl mx-auto w-full px-6 space-y-8">
             <ScrollReveal>
-              <h1 className="font-playful text-7xl md:text-[10rem] font-bold tracking-tight text-white leading-[0.9]">
+              <h1 className="font-playful text-7xl md:text-[10rem] font-bold tracking-tight text-white leading-[0.85]">
                 Hiya, i'm <span className="text-primary">Kieran!</span>
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <div className="space-y-4">
+              <div className="space-y-2 bg-slate-950/40 backdrop-blur-md p-8 rounded-3xl border border-white/5 inline-block">
                 <p className="text-3xl md:text-5xl font-playful font-bold text-white">
                   A Game Developer, Musician, Content Creator
                 </p>
@@ -63,17 +64,17 @@ export default function Home() {
         </section>
 
         {/* Who am I Section */}
-        <section id="about" className="max-w-6xl mx-auto w-full px-6 py-12 space-y-12">
+        <section id="about" className="relative z-10 max-w-6xl mx-auto w-full px-6 pb-24 -mt-8">
           <ScrollReveal>
-            <div className="relative flex flex-col items-center">
-              <h2 className="font-playful text-6xl font-bold text-white mb-12">
+            <div className="flex flex-col items-center">
+              <h2 className="font-playful text-5xl md:text-6xl font-bold text-white mb-16">
                 - Who am I? -
               </h2>
               
-              <div className="w-full bg-card rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row gap-10 items-start border border-white/5">
-                <div className="relative w-full md:w-[350px] aspect-square rounded-3xl overflow-hidden shrink-0">
+              <div className="w-full bg-card rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-start border border-white/5 shadow-2xl">
+                <div className="relative w-full md:w-[400px] aspect-square rounded-[2rem] overflow-hidden shrink-0 border border-white/10">
                   <Image 
-                    src="https://picsum.photos/seed/kieran-portrait/600/600"
+                    src="https://picsum.photos/seed/kieran-portrait/800/800"
                     alt="Kieran Portrait"
                     fill
                     className="object-cover"
@@ -81,7 +82,7 @@ export default function Home() {
                   />
                 </div>
                 
-                <div className="space-y-6 text-xl md:text-2xl leading-snug font-playful font-medium">
+                <div className="space-y-8 text-2xl md:text-3xl leading-snug font-playful font-medium">
                   <p>
                     I'm <span className="text-secondary">Kieran</span>, known as <span className="text-secondary">althruist</span> online. I am an 18 y/o in Malta, reading for <span className="text-secondary">Bachelors of Science (Hons) in Digital Games Development.</span>
                   </p>
@@ -98,15 +99,15 @@ export default function Home() {
         </section>
 
         {/* Gallery Section */}
-        <section id="work" className="max-w-7xl mx-auto w-full px-6 space-y-12">
+        <section id="work" className="max-w-7xl mx-auto w-full px-6 py-24 space-y-16">
           <ScrollReveal>
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
               <div className="space-y-2">
-                <h2 className="font-playful text-5xl font-bold text-playful-gradient">MY CREATIONS</h2>
-                <p className="text-muted-foreground font-medium">A journey through code, sound, and play.</p>
+                <h2 className="font-playful text-6xl font-bold text-playful-gradient">MY CREATIONS</h2>
+                <p className="text-muted-foreground font-medium text-lg">A journey through code, sound, and play.</p>
               </div>
               
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-wrap items-center gap-3">
                 {categories.map((cat) => {
                   const isActive = activeCategory === cat;
                   return (
@@ -114,12 +115,12 @@ export default function Home() {
                       key={cat}
                       onClick={() => setActiveCategory(cat)}
                       className={cn(
-                        "relative px-6 py-2 rounded-full text-lg font-playful transition-all hover:scale-105",
-                        isActive ? "text-secondary-foreground" : "bg-card text-muted-foreground hover:bg-muted"
+                        "relative px-8 py-3 rounded-full text-xl font-playful font-bold transition-all hover:scale-105",
+                        isActive ? "text-white" : "bg-card text-muted-foreground hover:bg-muted"
                       )}
                     >
                       {isActive && (
-                        <div className="absolute inset-0 bg-secondary rounded-full -z-10 animate-fade-in shadow-lg shadow-secondary/20" />
+                        <div className="absolute inset-0 bg-secondary rounded-full -z-10 animate-fade-in shadow-xl shadow-secondary/30" />
                       )}
                       {cat}
                     </button>
@@ -129,7 +130,7 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {filteredProjects.map((project, idx) => (
               <ScrollReveal key={project.id} delay={(idx % 2) * 100 as any}>
                 <ProjectCard project={project} />
@@ -139,22 +140,22 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="py-20 px-6 border-t border-white/5 mt-24">
+      <footer className="py-24 px-6 border-t border-white/5 bg-card/20">
         <ScrollReveal>
           <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
-            <div className="font-playful font-bold text-4xl text-primary">KIERAN</div>
+            <div className="font-playful font-bold text-5xl text-primary">KIERAN</div>
             
-            <div className="text-center space-y-4">
-              <p className="text-muted-foreground font-medium">this website is homemade :] • Kieran 2025 • <span className="text-primary cursor-pointer hover:underline">check out the repository!</span></p>
+            <div className="text-center space-y-6">
+              <p className="text-muted-foreground font-medium text-lg">this website is homemade :] • Kieran 2025 • <span className="text-primary cursor-pointer hover:underline">check out the repository!</span></p>
               
-              <div className="flex items-center justify-center gap-4">
+              <div className="flex items-center justify-center gap-6">
                 {socials.map((social, i) => (
                   <a 
                     key={i}
                     href={social.href} 
                     className="social-hover-blob text-secondary"
                   >
-                    <social.icon size={24} strokeWidth={2.5} />
+                    <social.icon size={28} strokeWidth={2.5} />
                   </a>
                 ))}
               </div>
