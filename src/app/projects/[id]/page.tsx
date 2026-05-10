@@ -29,9 +29,10 @@ export default function ProjectDetail() {
     <div className="flex-1 flex flex-col bg-background">
       <Navigation />
       
-      <main className="flex-1 animate-fade-in">
+      <main className="flex-1">
         {/* Project Hero Header Section */}
         <section className="relative w-full min-h-[70vh] flex flex-col pt-48 pb-12 px-6 lg:px-24 overflow-hidden">
+          {/* Background Image / Decoration */}
           <div className="absolute inset-0 -z-10">
             <Image 
               src={project.thumbnail} 
@@ -54,13 +55,13 @@ export default function ProjectDetail() {
             </ScrollReveal>
 
             <div className="space-y-6 pt-8">
-              <ScrollReveal delay={200}>
+              <ScrollReveal delay={100}>
                 <h1 className="font-playful text-7xl md:text-9xl font-bold text-white tracking-tight leading-[0.9] max-w-4xl">
                   {project.title}
                 </h1>
               </ScrollReveal>
 
-              <ScrollReveal delay={300}>
+              <ScrollReveal delay={200}>
                 <div className="flex flex-wrap items-center gap-4 pt-4">
                   <Badge className="bg-primary text-primary-foreground font-playful font-bold px-8 py-3 rounded-2xl text-xl lg:text-2xl border-none shadow-lg shadow-primary/20">
                     Featured
@@ -102,9 +103,9 @@ export default function ProjectDetail() {
           </div>
 
           {/* Sidebar Info */}
-          <div className="lg:col-span-4 space-y-12 lg:sticky lg:top-32 lg:self-start">
+          <div className="lg:col-span-4 space-y-12">
             <ScrollReveal delay={200}>
-              <div className="glass-panel p-10 lg:p-12 rounded-[2.5rem] border-white/5 bg-grain space-y-10">
+              <div className="glass-panel p-10 lg:p-12 rounded-[2.5rem] border-white/5 bg-grain space-y-10 overflow-hidden isolate">
                 <div className="space-y-6">
                   <div className="flex items-center gap-2 text-primary">
                     <Code size={20} strokeWidth={2.5} />
@@ -112,7 +113,7 @@ export default function ProjectDetail() {
                   </div>
                   <div className="flex flex-wrap gap-3">
                     {project.technologies.map(tech => (
-                      <Badge key={tech} variant="secondary" className="bg-white/5 hover:bg-white/10 text-white font-medium px-5 py-2 rounded-xl text-lg">
+                      <Badge key={tech} variant="secondary" className="bg-white/5 hover:bg-white/10 text-white font-medium px-5 py-2 rounded-xl text-lg backface-visibility-hidden">
                         {tech}
                       </Badge>
                     ))}
@@ -129,30 +130,26 @@ export default function ProjectDetail() {
                   </p>
                 </div>
 
-                {project.link && (
-                  <div className="pt-8">
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      <Button className="w-full h-16 lg:h-20 bg-accent text-accent-foreground font-playful font-bold text-2xl lg:text-3xl rounded-[1.5rem] hover:scale-105 transition-all shadow-xl shadow-accent/30 btn-playful">
-                        Live Preview <ExternalLink size={24} className="ml-3" />
-                      </Button>
-                    </a>
-                  </div>
-                )}
+                <div className="pt-8">
+                  <Button className="w-full h-16 lg:h-20 bg-accent text-accent-foreground font-playful font-bold text-2xl lg:text-3xl rounded-[1.5rem] hover:scale-105 transition-all shadow-xl shadow-accent/30 btn-playful backface-visibility-hidden">
+                    Live Preview <ExternalLink size={24} className="ml-3" />
+                  </Button>
+                </div>
               </div>
             </ScrollReveal>
           </div>
         </section>
       </main>
 
+      {/* Detail Footer */}
       <footer className="py-24 px-6 border-t border-white/5 bg-card/20">
         <ScrollReveal>
           <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
-            <div className="font-playful font-bold text-6xl text-primary tracking-tighter uppercase">Suman</div>
+            <div className="font-playful font-bold text-6xl text-primary tracking-tighter uppercase">SUMAN</div>
+            
             <div className="text-center space-y-4">
-              <p className="text-muted-foreground font-medium text-xl font-playful">Designed & Built by Suman Shrestha</p>
-              <p className="text-sm text-muted-foreground/40 font-bold uppercase tracking-[0.3em]">
-                © {new Date().getFullYear() > 2025 ? `2025 – ${new Date().getFullYear()}` : '2025'} · All Rights Reserved
-              </p>
+              <p className="text-muted-foreground font-medium text-xl font-playful">this website is homemade :]</p>
+              <p className="text-sm text-muted-foreground/40 font-bold uppercase tracking-[0.3em]">© 2025 — HANDCRAFTED WITH JOY</p>
             </div>
           </div>
         </ScrollReveal>

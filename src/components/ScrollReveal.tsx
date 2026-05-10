@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -23,14 +22,14 @@ export function ScrollReveal({
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Update visibility state based on intersection
-        setIsVisible(entry.isIntersecting);
+        // Only set to visible once to prevent flickering on scroll boundaries
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
       },
       {
         threshold,
-        // We use a large positive top margin so elements don't "hide" 
-        // immediately when scrolling down past them at the top of the page.
-        rootMargin: '20% 0px -5% 0px'
+        rootMargin: '0px 0px -5% 0px'
       }
     );
 
