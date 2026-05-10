@@ -12,8 +12,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Link 
-      href={`/projects/${project.id}`}
+    <div 
       className="group relative block aspect-square md:aspect-video overflow-hidden rounded-[2.5rem] bg-card border border-white/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10"
     >
       {/* Background Image */}
@@ -60,16 +59,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <h3 className="font-playful font-bold text-4xl md:text-5xl lg:text-7xl text-white text-center leading-none px-4">
             {project.title}
           </h3>
-          {/* Removed the circular dot as requested */}
         </div>
 
         {/* Bottom Button */}
         <div className="mt-auto">
-          <div className="w-full bg-secondary text-white font-bold text-xl lg:text-3xl font-playful rounded-2xl h-14 lg:h-16 flex items-center justify-center transform translate-y-6 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-xl shadow-secondary/30">
+          <Link 
+            href={`/projects/${project.id}`}
+            className="w-full bg-secondary text-white font-bold text-xl lg:text-3xl font-playful rounded-2xl h-14 lg:h-16 flex items-center justify-center transform translate-y-6 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-xl shadow-secondary/30 hover:scale-[1.02] active:scale-95"
+          >
             Read More
-          </div>
+          </Link>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
