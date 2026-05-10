@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -41,8 +40,6 @@ export default function ArchivePage() {
                 <h1 className="font-playful text-[8rem] md:text-[12rem] font-bold text-white leading-none">
                   Archive
                 </h1>
-                {/* The Signature Coral Dot moved from 'v' to 'i' */}
-                <div className="absolute top-[22%] right-[38%] w-6 h-6 md:w-10 md:h-10 rounded-full bg-primary shadow-[0_0_30px_rgba(255,100,80,0.8)] animate-pulse" />
               </div>
             </ScrollReveal>
           </div>
@@ -74,7 +71,7 @@ export default function ArchivePage() {
                 })}
               </div>
 
-              {/* Selected Tab Display moved below the buttons */}
+              {/* Selected Tab Display below the buttons */}
               <h2 className="font-playful text-5xl md:text-7xl font-bold text-white/90">
                 - {activeCategory} -
               </h2>
