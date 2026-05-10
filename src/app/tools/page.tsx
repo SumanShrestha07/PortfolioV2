@@ -25,7 +25,7 @@ export default function ArchivePage() {
       
       <main className="flex-1">
         {/* Archive Hero Section */}
-        <section className="relative w-full h-[60vh] overflow-hidden flex flex-col items-center justify-center pt-20">
+        <section className="relative w-full min-h-[70vh] overflow-hidden flex flex-col items-center justify-center pt-32 pb-24">
           <Image 
             src={PlaceHolderImages[0].imageUrl}
             alt="Archive Background"
@@ -49,12 +49,12 @@ export default function ArchivePage() {
         </section>
 
         {/* Content Section */}
-        <section className="relative -mt-20 z-20 max-w-7xl mx-auto w-full px-6 pb-32">
+        <section className="relative -mt-32 z-20 max-w-7xl mx-auto w-full px-6 pb-32">
           {/* Active Category Display */}
           <ScrollReveal delay={100}>
             <div className="flex flex-col items-center mb-12">
               {/* Filter Buttons */}
-              <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+              <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
                 {categories.map((cat) => {
                   const isActive = activeCategory === cat;
                   return (
