@@ -1,4 +1,3 @@
-
 "use client"
 
 import Link from 'next/link';
@@ -46,9 +45,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.year}
           </p>
           <div className="flex items-center gap-2">
-            <Badge className="bg-primary text-primary-foreground border-none font-bold px-3 py-1 rounded-lg text-[9px] lg:text-xs">
-              FEATURED
-            </Badge>
+            {project.featured && (
+              <Badge className="bg-primary text-primary-foreground border-none font-bold px-3 py-1 rounded-lg text-[9px] lg:text-xs">
+                FEATURED
+              </Badge>
+            )}
             <Badge className="bg-white/10 text-white border-none font-bold px-3 py-1 rounded-lg text-[9px] lg:text-xs">
               {project.category.toUpperCase()}
             </Badge>
