@@ -2,8 +2,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Kieran | Game Developer & Creator',
-  description: 'Portfolio of a game developer, musician, and content creator.',
+  title: 'Suman Shrestha| Game Developer',
+  description: 'Portfolio of a game developer.',
 };
 
 export default function RootLayout({

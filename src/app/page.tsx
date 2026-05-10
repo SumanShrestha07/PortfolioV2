@@ -25,6 +25,12 @@ const UnityIcon = ({ size = 28, ...props }: { size?: number } & React.SVGProps<S
 );
 
 export default function Home() {
+
+  const dob = new Date(2000, 6, 20); // July 20, 2000
+const today = new Date();
+const age = today.getFullYear() - dob.getFullYear() - 
+  (today < new Date(today.getFullYear(), 6, 20) ? 1 : 0);
+
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
 
   const categories: (Category | 'All')[] = ['All', 'Game', 'Website', 'Certification'];
@@ -34,12 +40,11 @@ export default function Home() {
     : PROJECTS.filter(p => p.category === activeCategory);
 
   const socials = [
-    { href: '#', icon: Linkedin, label: 'LinkedIn' },
-    { href: '#', icon: Facebook, label: 'Facebook' },
-    { href: 'https://github.com', icon: Github, label: 'GitHub' },
-    { href: 'https://play.unity.com', icon: UnityIcon, label: 'Unity Play' },
-  ];
-
+  { href: 'https://www.linkedin.com/in/suman-stha-5b2377282/', icon: Linkedin, label: 'LinkedIn' },
+  { href: 'https://www.facebook.com/suman.shrestha.789698', icon: Facebook, label: 'Facebook' },
+  { href: 'https://github.com/SumanShrestha07', icon: Github, label: 'GitHub' },
+  { href: 'https://play.unity.com/en/user/a2ac0fa5-ab73-4624-8153-803fdf7d1f73', icon: UnityIcon, label: 'Unity Play' },
+];
   return (
     <div className="flex-1 flex flex-col">
       <Navigation />
@@ -87,8 +92,8 @@ export default function Home() {
               <div className="w-full bg-[#0a0f1a] rounded-[2rem] p-8 md:p-12 flex flex-col md:flex-row gap-10 items-start border border-white/5 shadow-2xl">
                 <div className="relative w-full md:w-[280px] aspect-square rounded-2xl overflow-hidden shrink-0 border border-white/10 shadow-lg">
                   <Image 
-                    src="https://picsum.photos/seed/kieran-portrait/800/800"
-                    alt="Portrait"
+                    src="/suman-potrait.png"
+                    alt="Suman Portrait"
                     fill
                     className="object-cover"
                     data-ai-hint="man portrait"
@@ -97,16 +102,16 @@ export default function Home() {
                 
                 <div className="space-y-8 text-xl md:text-[1.75rem] leading-[1.4] font-playful font-medium text-white/90">
                   <div className="space-y-4">
+                   <p>
+                      I'm <span className="text-secondary">Suman Shrestha</span>, a passionate <span className="text-secondary">Game Developer</span> from <span className="text-secondary">Kathmandu, Nepal.</span> I am <span className="text-secondary">{age} y/o</span> and have completed my <span className="text-secondary">Bachelors in Computer Science & Information Technology.</span>
+                  </p>
                     <p>
-                      I'm <span className="text-secondary">Kieran</span>, known as <span className="text-secondary">althruist</span> online. I am an 18 y/o in Malta, reading for <span className="text-secondary">Bachelors of Science (Hons) in Digital Games Development.</span>
-                    </p>
-                    <p>
-                      I like to do a variety of things;
+                      I like to play and create games;
                     </p>
                   </div>
                   
                   <p>
-                    Ranging from <span className="text-secondary">3D Art/Animation</span> (using <span className="text-secondary">Blender</span>), <span className="text-secondary">Music-Making</span>, <span className="text-secondary">Coding</span> in several languages, <span className="text-secondary">Concept Art</span>, <span className="text-secondary">Sound Design</span>, <span className="text-secondary">Photography</span>.. anything creative you can think of I probably do it!
+                  Ranging from <span className="text-secondary">Game Development</span> (using <span className="text-secondary">Unity</span>), <span className="text-secondary">Mobile Game Development</span>, <span className="text-secondary">Casino Games</span>, <span className="text-secondary">C# Programming</span>, <span className="text-secondary">Multiplayer Systems</span>, <span className="text-secondary">Game Optimization</span>.. anything creative you can think of I probably do it!
                   </p>
                 </div>
               </div>

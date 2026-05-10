@@ -61,10 +61,10 @@ export function Navigation() {
   ];
 
   const socials = [
-    { href: '#', icon: Linkedin, label: 'LinkedIn' },
-    { href: '#', icon: Facebook, label: 'Facebook' },
-    { href: 'https://github.com', icon: Github, label: 'GitHub' },
-    { href: 'https://play.unity.com', icon: UnityIcon, label: 'Unity Play' },
+    { href: 'https://www.linkedin.com/in/suman-stha-5b2377282/', icon: Linkedin, label: 'LinkedIn' },
+    { href: 'https://www.facebook.com/suman.shrestha.789698', icon: Facebook, label: 'Facebook' },
+    { href: 'https://github.com/SumanShrestha07', icon: Github, label: 'GitHub' },
+    { href: 'https://play.unity.com/en/user/a2ac0fa5-ab73-4624-8153-803fdf7d1f73', icon: UnityIcon, label: 'Unity Play' },
   ];
 
   return (
