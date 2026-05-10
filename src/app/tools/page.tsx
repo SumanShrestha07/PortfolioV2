@@ -12,10 +12,10 @@ import { cn } from '@/lib/utils';
 export default function ArchivePage() {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
 
-  const categories: (Category | 'All')[] = ['All', 'Website', 'Game', 'Music', 'Certification'];
+  const categories: (Category | 'All')[] = ['All', 'Website', 'Game', 'Certification'];
 
   const filteredProjects = activeCategory === 'All' 
-    ? PROJECTS 
+    ? PROJECTS.filter(p => p.category === 'Website' || p.category === 'Game' || p.category === 'Certification')
     : PROJECTS.filter(p => p.category === activeCategory);
 
   return (
@@ -65,7 +65,7 @@ export default function ArchivePage() {
                           : "bg-secondary text-white hover:bg-secondary/80 shadow-secondary/20"
                       )}
                     >
-                      {cat === 'Game' ? 'Games' : cat === 'Website' ? 'Websites' : cat === 'Music' ? 'Music' : cat === 'Certification' ? 'Certifications' : cat}
+                      {cat === 'Game' ? 'Games' : cat === 'Website' ? 'Websites' : cat === 'Certification' ? 'Certifications' : cat}
                     </button>
                   );
                 })}
