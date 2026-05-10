@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Project } from '@/lib/projects-data';
 import { Badge } from '@/components/ui/badge';
-import { ArrowUpRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface ProjectCardProps {
   project: Project;
@@ -14,47 +14,62 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link 
       href={`/projects/${project.id}`}
-      className="group block relative overflow-hidden rounded-3xl bg-card border border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2"
+      className="group relative block aspect-square md:aspect-video overflow-hidden rounded-[2.5rem] bg-card border border-white/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10"
     >
-      <div className="aspect-video overflow-hidden relative">
+      {/* Background Image */}
+      <div className="absolute inset-0">
         <Image
           src={project.thumbnail}
           alt={project.title}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-80" />
-        
-        <div className="absolute bottom-6 left-6 space-y-1">
+        {/* Subtle base gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+      </div>
+
+      {/* Hover Overlay */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-md bg-black/40 flex flex-col p-8 lg:p-12">
+        {/* Top Info */}
+        <div className="space-y-4">
+          <p className="text-white font-medium text-sm lg:text-base">
+            Apr 20, 2025, 01:52 AM
+          </p>
           <div className="flex items-center gap-2">
-            <Badge className="bg-primary/20 text-primary border-primary/20 font-bold font-playful text-lg px-4 py-1">
-              {project.category}
+            <Badge className="bg-primary text-primary-foreground border-none font-bold px-4 py-1.5 rounded-lg text-sm">
+              Featured
             </Badge>
-            <span className="text-sm text-white/60 font-playful font-bold">{project.year}</span>
+            <Badge className="bg-[#111] text-white border-none font-bold px-4 py-1.5 rounded-lg text-sm">
+              {project.category === 'Games' ? 'Game' : project.category}
+            </Badge>
           </div>
-          <h3 className="font-playful font-bold text-4xl text-white group-hover:text-primary transition-colors">
-            {project.title}
-          </h3>
         </div>
 
-        <div className="absolute top-6 right-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-          <div className="bg-primary p-3 rounded-2xl text-primary-foreground shadow-xl shadow-primary/30">
-            <ArrowUpRight size={20} />
+        {/* Middle Section */}
+        <div className="flex-1 flex flex-col items-center justify-center space-y-8">
+          <h3 className="font-playful font-bold text-6xl md:text-7xl text-white text-center leading-none">
+            {project.title}
+          </h3>
+          {/* The Coral Dot */}
+          <div className="w-6 h-6 rounded-full bg-primary shadow-lg shadow-primary/50" />
+        </div>
+
+        {/* Bottom Button */}
+        <div className="mt-auto">
+          <div className="w-full bg-secondary text-white font-bold text-2xl font-playful rounded-2xl h-16 flex items-center justify-center transform transition-transform duration-300 group-hover:translate-y-0 translate-y-4 shadow-xl shadow-secondary/20">
+            Read More
           </div>
         </div>
       </div>
 
-      <div className="p-8">
-        <p className="text-lg text-muted-foreground font-playful leading-relaxed line-clamp-2">
-          {project.summary}
+      {/* Static Info (Visible when not hovered - optional, depends on how much you want it "exactly" like the pic) */}
+      <div className="absolute bottom-8 left-8 group-hover:opacity-0 transition-opacity duration-300">
+        <h3 className="font-playful font-bold text-4xl text-white">
+          {project.title}
+        </h3>
+        <p className="text-white/60 font-playful text-xl">
+          {project.category}
         </p>
-        <div className="flex flex-wrap gap-2 mt-4">
-          {project.technologies.slice(0, 3).map(tech => (
-            <span key={tech} className="text-xs font-bold text-secondary uppercase tracking-wider bg-secondary/5 px-3 py-1 rounded-lg">
-              {tech}
-            </span>
-          ))}
-        </div>
       </div>
     </Link>
   );
