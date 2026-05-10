@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { PROJECTS, Category } from '@/lib/projects-data';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Navigation } from '@/components/Navigation';
-import { Linkedin, MessageCircle, Youtube, Instagram, Github } from 'lucide-react';
+import { Linkedin, Github, Facebook } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ScrollReveal } from '@/components/ScrollReveal';
@@ -22,9 +22,7 @@ export default function Home() {
 
   const socials = [
     { href: '#', icon: Linkedin },
-    { href: '#', icon: MessageCircle },
-    { href: '#', icon: Youtube },
-    { href: '#', icon: Instagram },
+    { href: '#', icon: Facebook },
     { href: 'https://github.com', icon: Github },
   ];
 

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Gamepad2, Github, Youtube, Linkedin, Instagram, MessageCircle } from 'lucide-react';
+import { Gamepad2, Github, Linkedin, Facebook } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function Navigation() {
@@ -50,9 +50,7 @@ export function Navigation() {
 
   const socials = [
     { href: '#', icon: Linkedin },
-    { href: '#', icon: MessageCircle },
-    { href: '#', icon: Youtube },
-    { href: '#', icon: Instagram },
+    { href: '#', icon: Facebook },
     { href: 'https://github.com', icon: Github },
   ];
 
