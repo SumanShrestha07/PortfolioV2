@@ -1,10 +1,10 @@
+
 "use client"
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { Project } from '@/lib/projects-data';
 import { Badge } from '@/components/ui/badge';
-import { cn } from '@/lib/utils';
 
 interface ProjectCardProps {
   project: Project;
@@ -25,51 +25,51 @@ export function ProjectCard({ project }: ProjectCardProps) {
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
         {/* Subtle base gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      </div>
+
+      {/* Static Info (Visible when not hovered) */}
+      <div className="absolute bottom-8 left-8 lg:bottom-12 lg:left-12 group-hover:opacity-0 transition-opacity duration-300">
+        <h3 className="font-playful font-bold text-3xl lg:text-5xl text-white mb-1">
+          {project.title}
+        </h3>
+        <p className="text-secondary font-playful text-lg lg:text-2xl font-bold uppercase tracking-wider">
+          {project.category}
+        </p>
       </div>
 
       {/* Hover Overlay */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-md bg-black/40 flex flex-col p-8 lg:p-12">
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-xl bg-black/60 flex flex-col p-8 lg:p-12">
         {/* Top Info */}
-        <div className="space-y-4">
-          <p className="text-white font-medium text-sm lg:text-base">
-            Apr 20, 2025, 01:52 AM
+        <div className="space-y-2 lg:space-y-4 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+          <p className="text-white/60 font-medium text-[10px] lg:text-sm">
+            APRIL 2025
           </p>
           <div className="flex items-center gap-2">
-            <Badge className="bg-primary text-primary-foreground border-none font-bold px-4 py-1.5 rounded-lg text-sm">
-              Featured
+            <Badge className="bg-primary text-primary-foreground border-none font-bold px-3 py-1 rounded-lg text-[9px] lg:text-xs">
+              FEATURED
             </Badge>
-            <Badge className="bg-[#111] text-white border-none font-bold px-4 py-1.5 rounded-lg text-sm">
-              {project.category === 'Games' ? 'Game' : project.category}
+            <Badge className="bg-white/10 text-white border-none font-bold px-3 py-1 rounded-lg text-[9px] lg:text-xs">
+              {project.category.toUpperCase()}
             </Badge>
           </div>
         </div>
 
         {/* Middle Section */}
-        <div className="flex-1 flex flex-col items-center justify-center space-y-8">
-          <h3 className="font-playful font-bold text-6xl md:text-7xl text-white text-center leading-none">
+        <div className="flex-1 flex flex-col items-center justify-center space-y-4 lg:space-y-8">
+          <h3 className="font-playful font-bold text-4xl md:text-5xl lg:text-7xl text-white text-center leading-none px-4">
             {project.title}
           </h3>
           {/* The Coral Dot */}
-          <div className="w-6 h-6 rounded-full bg-primary shadow-lg shadow-primary/50" />
+          <div className="w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-primary shadow-[0_0_20px_rgba(255,100,80,0.8)]" />
         </div>
 
         {/* Bottom Button */}
         <div className="mt-auto">
-          <div className="w-full bg-secondary text-white font-bold text-2xl font-playful rounded-2xl h-16 flex items-center justify-center transform transition-transform duration-300 group-hover:translate-y-0 translate-y-4 shadow-xl shadow-secondary/20">
+          <div className="w-full bg-secondary text-white font-bold text-xl lg:text-3xl font-playful rounded-2xl h-14 lg:h-16 flex items-center justify-center transform translate-y-6 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-xl shadow-secondary/30">
             Read More
           </div>
         </div>
-      </div>
-
-      {/* Static Info (Visible when not hovered - optional, depends on how much you want it "exactly" like the pic) */}
-      <div className="absolute bottom-8 left-8 group-hover:opacity-0 transition-opacity duration-300">
-        <h3 className="font-playful font-bold text-4xl text-white">
-          {project.title}
-        </h3>
-        <p className="text-white/60 font-playful text-xl">
-          {project.category}
-        </p>
       </div>
     </Link>
   );
