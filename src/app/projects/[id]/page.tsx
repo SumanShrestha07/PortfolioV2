@@ -73,12 +73,13 @@ export default function ProjectDetail() {
                   {project.title}
                 </h1>
               </ScrollReveal>
-
               <ScrollReveal delay={200}>
                 <div className="flex flex-wrap items-center gap-4 pt-4">
-                  <Badge className="bg-primary text-primary-foreground font-playful font-bold px-8 py-3 rounded-2xl text-xl lg:text-2xl border-none shadow-lg shadow-primary/20">
-                    Featured
-                  </Badge>
+                  {project.featured && (
+                    <Badge className="bg-primary text-primary-foreground font-playful font-bold px-8 py-3 rounded-2xl text-xl lg:text-2xl border-none shadow-lg shadow-primary/20">
+                      Featured
+                    </Badge>
+                  )}
                   <Badge className="bg-secondary text-white font-playful font-bold px-8 py-3 rounded-2xl text-xl lg:text-2xl border-none shadow-lg shadow-secondary/20 uppercase">
                     {project.category}
                   </Badge>
@@ -102,12 +103,12 @@ export default function ProjectDetail() {
                     <CarouselContent>
                       {project.images.map((image, index) => (
                         <CarouselItem key={index}>
-                          <div className="aspect-video relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-card">
+                          <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-card min-h-[400px]">
                             <Image 
                               src={image} 
                               alt={`${project.title} Screenshot ${index + 1}`} 
                               fill 
-                              className="object-cover"
+                              className="object-contain"
                             />
                           </div>
                         </CarouselItem>
