@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { PROJECTS, Category } from '@/lib/projects-data';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Navigation } from '@/components/Navigation';
-import { Linkedin, Github, Facebook } from 'lucide-react';
+import { Linkedin, Github, Facebook, Gamepad2 } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ScrollReveal } from '@/components/ScrollReveal';
@@ -13,7 +13,6 @@ import { cn } from '@/lib/utils';
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
 
-  // Updated to include Website and Certification categories
   const categories: (Category | 'All')[] = ['All', 'Game', 'Website', 'Certification'];
 
   const filteredProjects = activeCategory === 'All' 
@@ -24,6 +23,7 @@ export default function Home() {
     { href: '#', icon: Linkedin },
     { href: '#', icon: Facebook },
     { href: 'https://github.com', icon: Github },
+    { href: 'https://play.unity.com', icon: Gamepad2 },
   ];
 
   return (
@@ -73,7 +73,7 @@ export default function Home() {
                 <div className="relative w-full md:w-[280px] aspect-square rounded-2xl overflow-hidden shrink-0 border border-white/10 shadow-lg">
                   <Image 
                     src="https://picsum.photos/seed/kieran-portrait/800/800"
-                    alt="Kieran Portrait"
+                    alt="Portrait"
                     fill
                     className="object-cover"
                     data-ai-hint="man portrait"
@@ -155,6 +155,8 @@ export default function Home() {
                     key={i}
                     href={social.href} 
                     className="social-hover-blob text-secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <social.icon size={28} strokeWidth={2.5} />
                   </a>

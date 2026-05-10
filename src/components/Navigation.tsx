@@ -52,6 +52,7 @@ export function Navigation() {
     { href: '#', icon: Linkedin },
     { href: '#', icon: Facebook },
     { href: 'https://github.com', icon: Github },
+    { href: 'https://play.unity.com', icon: Gamepad2 },
   ];
 
   return (
@@ -103,6 +104,7 @@ export function Navigation() {
               className="social-hover-blob text-secondary"
               target="_blank"
               rel="noopener noreferrer"
+              title={social.icon === Gamepad2 ? "Unity Play" : ""}
             >
               <social.icon size={22} strokeWidth={2.5} />
             </a>
