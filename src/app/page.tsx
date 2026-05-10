@@ -1,10 +1,11 @@
+
 "use client"
 
 import { useState } from 'react';
 import { PROJECTS, Category } from '@/lib/projects-data';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Navigation } from '@/components/Navigation';
-import { Linkedin, Github, Facebook, Gamepad2 } from 'lucide-react';
+import { Linkedin, Github, Facebook } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ScrollReveal } from '@/components/ScrollReveal';
@@ -45,24 +46,25 @@ export default function Home() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section id="home" className="relative w-full overflow-hidden flex flex-col pt-40 pb-12 min-h-[85vh] justify-center">
+        <section id="home" className="relative w-full overflow-hidden flex flex-col pt-40 pb-12 min-h-[90vh] justify-center items-center text-center">
           <Image 
             src={PlaceHolderImages[0].imageUrl}
             alt="Hero Background"
             fill
-            className="object-cover opacity-60"
+            className="object-cover opacity-40 brightness-[0.4]"
             priority
+            data-ai-hint={PlaceHolderImages[0].imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-background" />
           
-          <div className="relative z-10 max-w-7xl mx-auto w-full px-6 space-y-10">
+          <div className="relative z-10 max-w-7xl mx-auto w-full px-6 space-y-12">
             <ScrollReveal>
               <h1 className="font-playful text-7xl md:text-[11rem] font-bold tracking-tight text-white leading-[0.8]">
                 Hi, i'm <span className="text-primary">Suman!</span>
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <div className="space-y-4 bg-slate-950/40 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white/5 inline-block">
+              <div className="space-y-4 bg-slate-950/60 backdrop-blur-2xl p-8 md:p-12 rounded-[2.5rem] border border-white/10 inline-block shadow-2xl">
                 <p className="text-3xl md:text-6xl font-playful font-bold text-white leading-tight">
                   A Game Developer
                 </p>
@@ -160,7 +162,7 @@ export default function Home() {
             <div className="font-playful font-bold text-5xl text-primary">KIERAN</div>
             
             <div className="text-center space-y-6">
-              <p className="text-muted-foreground font-medium text-lg">this website is homemade :] • Kieran 2025 • <span className="text-primary cursor-pointer hover:underline">check out the repository!</span></p>
+              <p className="text-muted-foreground font-medium text-lg">this website is homemade :] • Kieran 2025</p>
               
               <div className="flex items-center justify-center gap-6">
                 {socials.map((social, i) => (

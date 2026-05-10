@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-bg",
-      "description": "A vibrant 3D low-poly landscape with a bird.",
-      "imageUrl": "https://picsum.photos/seed/kieran-hero/1920/1080",
-      "imageHint": "lowpoly game landscape"
+      "description": "Dark low-poly mountain landscape with abstract geometric wireframes.",
+      "imageUrl": "https://picsum.photos/seed/suman-hero/1920/1080",
+      "imageHint": "dark lowpoly mountain wireframe"
     },
     {
       "id": "game-1",
