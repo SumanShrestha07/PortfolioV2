@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Project } from '@/lib/projects-data';
 import { Badge } from '@/components/ui/badge';
-import { ArrowUpRight, Gamepad2 } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -14,7 +14,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link 
       href={`/projects/${project.id}`}
-      className="group block relative overflow-hidden rounded-3xl bg-card border border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5"
+      className="group block relative overflow-hidden rounded-3xl bg-card border border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2"
     >
       <div className="aspect-video overflow-hidden relative">
         <Image
@@ -27,7 +27,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         
         <div className="absolute bottom-6 left-6 space-y-1">
           <div className="flex items-center gap-2">
-            <Badge className="bg-primary/20 text-primary border-primary/20 font-bold font-playful text-lg">
+            <Badge className="bg-primary/20 text-primary border-primary/20 font-bold font-playful text-lg px-4 py-1">
               {project.category}
             </Badge>
             <span className="text-sm text-white/60 font-playful font-bold">{project.year}</span>
@@ -37,7 +37,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </h3>
         </div>
 
-        <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="absolute top-6 right-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
           <div className="bg-primary p-3 rounded-2xl text-primary-foreground shadow-xl shadow-primary/30">
             <ArrowUpRight size={20} />
           </div>

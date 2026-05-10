@@ -39,7 +39,7 @@ export function Navigation() {
                 key={href}
                 href={href}
                 className={cn(
-                  "text-lg font-bold transition-all hover:text-secondary font-playful tracking-wide",
+                  "text-lg font-bold transition-all hover:text-secondary font-playful tracking-wide hover:scale-105",
                   pathname === href ? "text-secondary" : "text-secondary/70"
                 )}
               >
@@ -49,13 +49,13 @@ export function Navigation() {
           </div>
         </div>
 
-        {/* Social Icons */}
-        <div className="flex items-center gap-5">
+        {/* Social Icons with Blob Hover */}
+        <div className="flex items-center gap-2">
           {socials.map((social, i) => (
             <a 
               key={i}
               href={social.href} 
-              className="text-secondary/80 hover:text-secondary transition-all hover:scale-110"
+              className="social-hover-blob text-secondary"
               target="_blank"
               rel="noopener noreferrer"
             >

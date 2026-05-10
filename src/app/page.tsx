@@ -5,7 +5,7 @@ import { PROJECTS, Category } from '@/lib/projects-data';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Navigation } from '@/components/Navigation';
 import { Button } from '@/components/ui/button';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Linkedin, MessageCircle, Youtube, Instagram, Github } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ScrollReveal } from '@/components/ScrollReveal';
@@ -18,6 +18,14 @@ export default function Home() {
   const filteredProjects = activeCategory === 'All' 
     ? PROJECTS 
     : PROJECTS.filter(p => p.category === activeCategory);
+
+  const socials = [
+    { href: '#', icon: Linkedin },
+    { href: '#', icon: MessageCircle },
+    { href: '#', icon: Youtube },
+    { href: '#', icon: Instagram },
+    { href: 'https://github.com', icon: Github },
+  ];
 
   return (
     <div className="flex-1 flex flex-col">
@@ -53,7 +61,7 @@ export default function Home() {
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <div className="pt-8 flex gap-4">
-                 <Button size="lg" className="rounded-full bg-primary text-primary-foreground font-bold hover:scale-105 transition-transform h-14 px-8 text-xl font-playful">
+                 <Button size="lg" className="btn-playful rounded-full bg-primary text-primary-foreground font-bold h-14 px-8 text-xl font-playful">
                   - Who am I? -
                 </Button>
               </div>
@@ -75,7 +83,7 @@ export default function Home() {
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className="px-6 py-2 rounded-full text-lg font-playful bg-primary text-primary-foreground shadow-lg shadow-primary/20 transition-all"
+                    className="px-6 py-2 rounded-full text-lg font-playful bg-primary text-primary-foreground shadow-lg shadow-primary/20 transition-all scale-105"
                   >
                     {cat}
                   </button>
@@ -83,7 +91,7 @@ export default function Home() {
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className="px-6 py-2 rounded-full text-lg font-playful bg-card text-muted-foreground hover:bg-muted transition-all"
+                    className="px-6 py-2 rounded-full text-lg font-playful bg-card text-muted-foreground hover:bg-muted transition-all hover:scale-105"
                   >
                     {cat}
                   </button>
@@ -112,7 +120,7 @@ export default function Home() {
               I've been breaking and making games since I was 10. Now I spend my time balancing technical architecture with creative playfulness. Whether it's a procedural universe or a simple drum loop, I just love the process of bringing things to life.
             </p>
             <div className="pt-8">
-              <Button variant="outline" className="rounded-full border-primary/50 text-primary font-bold h-14 px-10 text-xl font-playful hover:bg-primary/10">
+              <Button variant="outline" className="btn-playful rounded-full border-primary/50 text-primary font-bold h-14 px-10 text-xl font-playful hover:bg-primary/10">
                 Let's talk!
               </Button>
             </div>
@@ -122,14 +130,26 @@ export default function Home() {
 
       <footer className="py-20 px-6 border-t border-white/5 mt-24">
         <ScrollReveal>
-          <div className="max-w-7xl mx-auto flex flex-col items-center gap-8">
+          <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
             <div className="font-playful font-bold text-4xl text-primary">KIERAN</div>
-            <div className="flex items-center gap-8 text-muted-foreground font-medium">
-              <a href="#" className="hover:text-primary transition-colors">Twitter</a>
-              <a href="#" className="hover:text-primary transition-colors">YouTube</a>
-              <a href="#" className="hover:text-primary transition-colors">GitHub</a>
+            
+            <div className="text-center space-y-4">
+              <p className="text-muted-foreground font-medium">this website is homemade :] • Kieran 2025 • <span className="text-primary cursor-pointer hover:underline">check out the repository!</span></p>
+              
+              <div className="flex items-center justify-center gap-4">
+                {socials.map((social, i) => (
+                  <a 
+                    key={i}
+                    href={social.href} 
+                    className="social-hover-blob text-secondary"
+                  >
+                    <social.icon size={24} strokeWidth={2.5} />
+                  </a>
+                ))}
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground/60 font-medium">© 2024 — HANDCRAFTED WITH JOY</p>
+            
+            <p className="text-sm text-muted-foreground/60 font-medium">© 2025 — HANDCRAFTED WITH JOY</p>
           </div>
         </ScrollReveal>
       </footer>
