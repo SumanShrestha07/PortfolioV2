@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "p1",
+      "description": "Lumina AI - A futuristic dashboard for LLM management.",
+      "imageUrl": "https://picsum.photos/seed/pixel1/800/600",
+      "imageHint": "futuristic dashboard"
+    },
+    {
+      "id": "p2",
+      "description": "Neptune E-commerce - Minimalist shopping experience.",
+      "imageUrl": "https://picsum.photos/seed/pixel2/800/600",
+      "imageHint": "minimalist website"
+    },
+    {
+      "id": "p3",
+      "description": "Ghost Protocol - Cybersecurity data visualization tool.",
+      "imageUrl": "https://picsum.photos/seed/pixel3/800/600",
+      "imageHint": "data visualization"
+    },
+    {
+      "id": "p4",
+      "description": "Arcade Revival - Retro gaming platform concept.",
+      "imageUrl": "https://picsum.photos/seed/pixel4/800/600",
+      "imageHint": "retro game"
+    },
+    {
+      "id": "p5",
+      "description": "Zen Space - Meditation and mindfulness mobile app.",
+      "imageUrl": "https://picsum.photos/seed/pixel5/800/600",
+      "imageHint": "meditation app"
+    },
+    {
+      "id": "p6",
+      "description": "Orbital - Interactive solar system education platform.",
+      "imageUrl": "https://picsum.photos/seed/pixel6/800/600",
+      "imageHint": "space interface"
+    }
+  ]
 }
