@@ -6,6 +6,19 @@ import { usePathname } from 'next/navigation';
 import { Gamepad2, Github, Linkedin, Facebook } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+const UnityIcon = ({ size = 22, ...props }: { size?: number } & React.SVGProps<SVGSVGElement>) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 256 256" 
+    fill="currentColor" 
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path d="M128 0L20 62.35v131.3L128 256l108-62.35V62.35L128 0zm90.4 71.6L128 123.8 37.6 71.6 128 19.4l90.4 52.2zM37.6 90.4L118 136.8v99.8l-80.4-46.4V90.4zm100 99.8V136.8l80.4-46.4v99.8l-80.4 46.4z"/>
+  </svg>
+);
+
 export function Navigation() {
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState('');
@@ -32,7 +45,6 @@ export function Navigation() {
 
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
 
-    // Track home (hero) and work (portfolio)
     const sections = ['home', 'work'];
     sections.forEach(id => {
       const el = document.getElementById(id);
@@ -52,13 +64,12 @@ export function Navigation() {
     { href: '#', icon: Linkedin },
     { href: '#', icon: Facebook },
     { href: 'https://github.com', icon: Github },
-    { href: 'https://play.unity.com', icon: Gamepad2 },
+    { href: 'https://play.unity.com', icon: UnityIcon },
   ];
 
   return (
     <div className="fixed top-8 left-0 w-full flex justify-center z-50 px-6">
       <nav className="w-full max-w-5xl glass-nav bg-grain px-8 py-3 flex items-center justify-between rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-        {/* Logo and Main Nav */}
         <div className="flex items-center gap-10">
           <Link href="/" className="flex items-center group">
             <div className="text-primary group-hover:scale-110 transition-transform">
@@ -95,7 +106,6 @@ export function Navigation() {
           </div>
         </div>
 
-        {/* Social Icons with Blob Hover */}
         <div className="flex items-center gap-3">
           {socials.map((social, i) => (
             <a 
@@ -104,7 +114,7 @@ export function Navigation() {
               className="social-hover-blob text-secondary"
               target="_blank"
               rel="noopener noreferrer"
-              title={social.icon === Gamepad2 ? "Unity Play" : ""}
+              title={social.icon === UnityIcon ? "Unity Play" : ""}
             >
               <social.icon size={22} strokeWidth={2.5} />
             </a>

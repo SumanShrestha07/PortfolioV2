@@ -10,6 +10,19 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { cn } from '@/lib/utils';
 
+const UnityIcon = ({ size = 28, ...props }: { size?: number } & React.SVGProps<SVGSVGElement>) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 256 256" 
+    fill="currentColor" 
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path d="M128 0L20 62.35v131.3L128 256l108-62.35V62.35L128 0zm90.4 71.6L128 123.8 37.6 71.6 128 19.4l90.4 52.2zM37.6 90.4L118 136.8v99.8l-80.4-46.4V90.4zm100 99.8V136.8l80.4-46.4v99.8l-80.4 46.4z"/>
+  </svg>
+);
+
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
 
@@ -23,7 +36,7 @@ export default function Home() {
     { href: '#', icon: Linkedin },
     { href: '#', icon: Facebook },
     { href: 'https://github.com', icon: Github },
-    { href: 'https://play.unity.com', icon: Gamepad2 },
+    { href: 'https://play.unity.com', icon: UnityIcon },
   ];
 
   return (
