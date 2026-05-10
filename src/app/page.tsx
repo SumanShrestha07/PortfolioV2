@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -9,6 +10,7 @@ import { Sparkles, Linkedin, MessageCircle, Youtube, Instagram, Github } from 'l
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { cn } from '@/lib/utils';
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
@@ -79,23 +81,24 @@ export default function Home() {
               </div>
               
               <div className="flex flex-wrap items-center gap-2">
-                {categories.map((cat) => (activeCategory === cat ? (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    className="px-6 py-2 rounded-full text-lg font-playful bg-primary text-primary-foreground shadow-lg shadow-primary/20 transition-all scale-105"
-                  >
-                    {cat}
-                  </button>
-                ) : (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    className="px-6 py-2 rounded-full text-lg font-playful bg-card text-muted-foreground hover:bg-muted transition-all hover:scale-105"
-                  >
-                    {cat}
-                  </button>
-                )))}
+                {categories.map((cat) => {
+                  const isActive = activeCategory === cat;
+                  return (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveCategory(cat)}
+                      className={cn(
+                        "relative px-6 py-2 rounded-full text-lg font-playful transition-all hover:scale-105",
+                        isActive ? "text-secondary-foreground" : "bg-card text-muted-foreground hover:bg-muted"
+                      )}
+                    >
+                      {isActive && (
+                        <div className="absolute inset-0 bg-secondary rounded-full -z-10 animate-fade-in shadow-lg shadow-secondary/20" />
+                      )}
+                      {cat}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </ScrollReveal>

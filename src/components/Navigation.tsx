@@ -1,5 +1,7 @@
+
 "use client"
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Gamepad2, Github, Youtube, Linkedin, Instagram, MessageCircle } from 'lucide-react';
@@ -7,6 +9,17 @@ import { cn } from '@/lib/utils';
 
 export function Navigation() {
   const pathname = usePathname();
+  const [currentHash, setCurrentHash] = useState('');
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+    };
+
+    handleHashChange(); // Check initial hash
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const links = [
     { href: '/', label: 'Home' },
@@ -35,7 +48,12 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center gap-2">
             {links.map(({ href, label }) => {
-              const isActive = pathname === href;
+              const isHome = pathname === '/';
+              const isHashLink = href.startsWith('#');
+              const isActive = isHashLink 
+                ? (isHome && currentHash === href)
+                : (pathname === href && currentHash === '');
+
               return (
                 <Link
                   key={href}
@@ -44,9 +62,13 @@ export function Navigation() {
                     "relative px-6 py-2 text-lg font-bold transition-all font-playful tracking-wide hover:scale-105",
                     isActive ? "text-secondary-foreground" : "text-secondary/70 hover:text-secondary"
                   )}
+                  onClick={() => {
+                    if (isHashLink) setCurrentHash(href);
+                    else setCurrentHash('');
+                  }}
                 >
                   {isActive && (
-                    <div className="absolute inset-0 bg-secondary rounded-full -z-10 animate-fade-in" />
+                    <div className="absolute inset-0 bg-secondary rounded-full -z-10 animate-fade-in shadow-lg shadow-secondary/20" />
                   )}
                   {label}
                 </Link>
