@@ -38,8 +38,8 @@ export default function Home() {
       <Navigation />
       
       <main className="flex-1 space-y-24">
-        {/* Hero Section */}
-        <section className="relative h-[85vh] w-full overflow-hidden flex items-end">
+        {/* Hero Section - Adjusted for overlap */}
+        <section className="relative min-h-screen w-full overflow-hidden flex items-center pt-32 pb-20">
           <Image 
             src={PlaceHolderImages[0].imageUrl}
             alt="Hero Background"
@@ -47,30 +47,30 @@ export default function Home() {
             className="object-cover opacity-60"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
           
-          <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pb-20 space-y-6">
+          <div className="relative z-10 max-w-7xl mx-auto w-full px-6 space-y-4">
             <ScrollReveal>
-              <h1 className="font-playful text-7xl md:text-9xl font-bold tracking-tight text-white leading-tight">
+              <h1 className="font-playful text-7xl md:text-[10rem] font-bold tracking-tight text-white leading-[0.9]">
                 Hiya, i'm <span className="text-primary">Kieran!</span>
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <div className="space-y-2">
-                <p className="text-3xl md:text-4xl font-playful font-bold text-white">
+              <div className="space-y-4">
+                <p className="text-3xl md:text-5xl font-playful font-bold text-white">
                   A Game Developer, Musician, Content Creator
                 </p>
-                <p className="text-xl text-secondary font-playful">
+                <p className="text-xl md:text-2xl text-secondary font-playful font-medium">
                   (& a lil' bit of everything else :])
                 </p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={200}>
-              <div className="pt-8 flex gap-4">
+              <div className="pt-10">
                  <Button 
                   onClick={handleScrollToAbout}
                   size="lg" 
-                  className="btn-playful rounded-full bg-primary text-primary-foreground font-bold h-14 px-8 text-xl font-playful"
+                  className="btn-playful rounded-full bg-primary text-primary-foreground font-bold h-16 px-10 text-2xl font-playful"
                  >
                   - Who am I? -
                 </Button>
@@ -79,7 +79,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Who am I Section - Exactly as requested */}
+        {/* Who am I Section */}
         <section id="about" className="max-w-6xl mx-auto w-full px-6 py-12 space-y-12">
           <ScrollReveal>
             <div className="relative flex flex-col items-center">
