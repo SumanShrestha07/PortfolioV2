@@ -60,8 +60,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <h3 className="font-playful font-bold text-4xl md:text-5xl lg:text-7xl text-white text-center leading-none px-4">
             {project.title}
           </h3>
-          {/* The Coral Dot */}
-          <div className="w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-primary shadow-[0_0_20px_rgba(255,100,80,0.8)]" />
+          {/* Removed the circular dot as requested */}
         </div>
 
         {/* Bottom Button */}
