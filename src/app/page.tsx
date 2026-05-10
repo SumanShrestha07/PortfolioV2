@@ -14,10 +14,11 @@ import { cn } from '@/lib/utils';
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
 
-  const categories: (Category | 'All')[] = ['All', 'Games'];
+  // Updated to include Website category
+  const categories: (Category | 'All')[] = ['All', 'Game', 'Website'];
 
   const filteredProjects = activeCategory === 'All' 
-    ? PROJECTS 
+    ? PROJECTS.filter(p => p.category === 'Game' || p.category === 'Website') 
     : PROJECTS.filter(p => p.category === activeCategory);
 
   const socials = [
@@ -125,7 +126,7 @@ export default function Home() {
                       {isActive && (
                         <div className="absolute inset-0 bg-secondary rounded-full -z-10 animate-fade-in shadow-xl shadow-secondary/30" />
                       )}
-                      {cat}
+                      {cat === 'Game' ? 'Games' : cat === 'Website' ? 'Websites' : cat}
                     </button>
                   );
                 })}
