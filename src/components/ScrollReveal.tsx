@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -14,7 +15,7 @@ export function ScrollReveal({
   children, 
   className, 
   delay = 0,
-  threshold = 0.1 
+  threshold = 0.05 
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -23,12 +24,13 @@ export function ScrollReveal({
     const observer = new IntersectionObserver(
       ([entry]) => {
         // Update visibility state based on intersection
-        // This allows the animation to play both on entry and exit
         setIsVisible(entry.isIntersecting);
       },
       {
         threshold,
-        rootMargin: '0px 0px -50px 0px'
+        // We use a large positive top margin so elements don't "hide" 
+        // immediately when scrolling down past them at the top of the page.
+        rootMargin: '20% 0px -5% 0px'
       }
     );
 
