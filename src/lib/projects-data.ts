@@ -1,6 +1,6 @@
 import { PlaceHolderImages } from './placeholder-images';
 
-export type Category = 'Web Dev' | 'Design' | 'AI' | 'Mobile';
+export type Category = 'Games' | 'Music' | 'Archive' | 'Tools';
 
 export interface Project {
   id: string;
@@ -17,69 +17,47 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    id: 'lumina-ai',
-    title: 'Lumina AI',
-    category: 'AI',
-    summary: 'Orchestrating complex LLM workflows with a simple node-based interface.',
-    fullDescription: 'Lumina AI addresses the complexity of chaining multiple Large Language Models. Built for researchers and developers, it provides a high-fidelity visual interface to map out prompts, context injection, and response filtering. The system supports real-time streaming and performance monitoring for production-ready AI agents.',
-    thumbnail: PlaceHolderImages[0].imageUrl,
-    images: [PlaceHolderImages[0].imageUrl, "https://picsum.photos/seed/l2/1200/800", "https://picsum.photos/seed/l3/1200/800"],
-    technologies: ['React', 'TypeScript', 'Genkit', 'Tailwind CSS', 'Framer Motion'],
-    year: '2024'
-  },
-  {
-    id: 'neptune-eco',
-    title: 'Neptune E-commerce',
-    category: 'Web Dev',
-    summary: 'A high-performance storefront designed for digital artisans.',
-    fullDescription: 'Neptune is an exploration into ultra-fast commerce. Utilizing Next.js Server Components and edge caching, it achieves sub-100ms page transitions. The design language focuses on white space and high-contrast typography to elevate product photography.',
+    id: 'star-chaser',
+    title: 'Star Chaser',
+    category: 'Games',
+    summary: 'A fast-paced pixel art platformer about catching falling stars.',
+    fullDescription: 'Star Chaser was built during a 48-hour game jam. It features responsive controls, procedurally generated levels, and a custom physics engine written in C# for Unity.',
     thumbnail: PlaceHolderImages[1].imageUrl,
-    images: [PlaceHolderImages[1].imageUrl, "https://picsum.photos/seed/n2/1200/800"],
-    technologies: ['Next.js', 'Prisma', 'PostgreSQL', 'Stripe'],
-    year: '2023'
+    images: [PlaceHolderImages[1].imageUrl],
+    technologies: ['Unity', 'C#', 'Aseprite'],
+    year: '2024'
   },
   {
-    id: 'ghost-protocol',
-    title: 'Ghost Protocol',
-    category: 'Design',
-    summary: 'An immersive cybersecurity dashboard for threat detection.',
-    fullDescription: 'Ghost Protocol is a conceptual design for a SOC (Security Operations Center) dashboard. It explores non-traditional data visualization methods, using 3D particle systems to represent network packets and heatmaps for geographically distributed attacks.',
+    id: 'void-runner',
+    title: 'Void Runner',
+    category: 'Games',
+    summary: 'Neon-soaked high-speed 3D racing in a procedurally generated synthwave world.',
+    fullDescription: 'Void Runner focuses on flow and speed. Developed using Unreal Engine 5, it utilizes Nanite for dense geometry and a custom shader system for the iconic retro-futuristic aesthetic.',
     thumbnail: PlaceHolderImages[2].imageUrl,
-    images: [PlaceHolderImages[2].imageUrl, "https://picsum.photos/seed/g2/1200/800"],
-    technologies: ['Three.js', 'D3.js', 'Figma', 'React'],
-    year: '2024'
-  },
-  {
-    id: 'arcade-revival',
-    title: 'Arcade Revival',
-    category: 'Web Dev',
-    summary: 'Bringing classic 8-bit games to the modern web.',
-    fullDescription: 'Arcade Revival is a social gaming platform that hosts emulated retro games. It features global leaderboards, achievement systems, and a real-time multiplayer spectator mode.',
-    thumbnail: PlaceHolderImages[3].imageUrl,
-    images: [PlaceHolderImages[3].imageUrl, "https://picsum.photos/seed/a2/1200/800"],
-    technologies: ['WebAssembly', 'Canvas API', 'Socket.io', 'Node.js'],
+    images: [PlaceHolderImages[2].imageUrl],
+    technologies: ['Unreal Engine 5', 'C++', 'Blender'],
     year: '2023'
   },
   {
-    id: 'zen-space',
-    title: 'Zen Space',
-    category: 'Mobile',
-    summary: 'A minimalist mindfulness app focusing on audio immersion.',
-    fullDescription: 'Zen Space uses spatial audio and biofeedback to help users reach deep meditative states. The interface is intentionally sparse, using only essential icons and soft gradients to minimize cognitive load.',
-    thumbnail: PlaceHolderImages[4].imageUrl,
-    images: [PlaceHolderImages[4].imageUrl, "https://picsum.photos/seed/z2/1200/800"],
-    technologies: ['React Native', 'Tone.js', 'Reanimated', 'Expo'],
+    id: 'melody-maker',
+    title: 'Melody Maker',
+    category: 'Music',
+    summary: 'An interactive audio-visual sandbox for creating chill-hop beats.',
+    fullDescription: 'Melody Maker combines my passion for music and code. It allows users to place blocks that trigger loops and effects, synchronized to a global master clock.',
+    thumbnail: PlaceHolderImages[3].imageUrl,
+    images: [PlaceHolderImages[3].imageUrl],
+    technologies: ['Tone.js', 'React', 'Three.js'],
     year: '2024'
   },
   {
-    id: 'orbital-edu',
-    title: 'Orbital',
-    category: 'Design',
-    summary: 'Interactive cosmic education platform.',
-    fullDescription: 'Orbital reimagines how we learn about astronomy. It is a full-screen, interactive experience that allows students to navigate through a simulated solar system with real-time NASA data integration.',
-    thumbnail: PlaceHolderImages[5].imageUrl,
-    images: [PlaceHolderImages[5].imageUrl, "https://picsum.photos/seed/o2/1200/800"],
-    technologies: ['WebGL', 'GLSL', 'React', 'GSAP'],
-    year: '2022'
+    id: 'forest-spirits',
+    title: 'Forest Spirits',
+    category: 'Games',
+    summary: 'A cozy RPG exploration game set in a haunted but friendly forest.',
+    fullDescription: 'Forest Spirits is my most ambitious project yet. A narrative-driven experience featuring hand-drawn assets and a dynamic weather system that affects gameplay.',
+    thumbnail: PlaceHolderImages[4].imageUrl,
+    images: [PlaceHolderImages[4].imageUrl],
+    technologies: ['Godot', 'GDScript', 'Krita'],
+    year: '2024'
   }
 ];

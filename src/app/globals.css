@@ -4,31 +4,26 @@
 
 @layer base {
   :root {
-    --background: 268 15% 15%;
+    --background: 230 25% 7%;
     --foreground: 0 0% 98%;
-    --card: 268 15% 12%;
+    --card: 230 25% 10%;
     --card-foreground: 0 0% 98%;
-    --popover: 268 15% 15%;
+    --popover: 230 25% 12%;
     --popover-foreground: 0 0% 98%;
-    --primary: 240 44% 75%;
-    --primary-foreground: 268 15% 15%;
-    --secondary: 268 15% 20%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 268 15% 25%;
-    --muted-foreground: 240 10% 70%;
-    --accent: 212 88% 81%;
-    --accent-foreground: 212 88% 10%;
+    --primary: 15 85% 65%;
+    --primary-foreground: 230 25% 7%;
+    --secondary: 210 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 230 25% 20%;
+    --muted-foreground: 230 10% 70%;
+    --accent: 15 85% 65%;
+    --accent-foreground: 230 25% 7%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 268 15% 25%;
-    --input: 268 15% 25%;
-    --ring: 240 44% 75%;
-    --radius: 0.75rem;
-    --chart-1: 240 44% 75%;
-    --chart-2: 212 88% 81%;
-    --chart-3: 268 50% 60%;
-    --chart-4: 200 70% 50%;
-    --chart-5: 280 60% 70%;
+    --border: 230 25% 20%;
+    --input: 230 25% 20%;
+    --ring: 15 85% 65%;
+    --radius: 1.5rem;
   }
 }
 
@@ -37,19 +32,33 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground selection:bg-accent/30;
+    @apply bg-background text-foreground selection:bg-primary/30;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
-.glass-panel {
-  @apply bg-card/60 backdrop-blur-md border border-white/5;
+.font-playful {
+  font-family: 'Patrick Hand', cursive;
 }
 
-.hover-lift {
-  @apply transition-transform duration-300 hover:-translate-y-1;
+.font-body {
+  font-family: 'Quicksand', sans-serif;
 }
 
-.text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+.glass-nav {
+  @apply bg-card/80 backdrop-blur-xl border border-white/10 shadow-2xl;
+}
+
+.text-playful-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-primary;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
