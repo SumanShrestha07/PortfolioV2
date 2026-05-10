@@ -32,9 +32,14 @@ const EXPERIENCES = [
     type: "Full-time",
     location: "Kathmandu, Nepal • On-site",
     description: [
+      "Built and maintained integrations with REST APIs and external SDKs",
       "Developed and maintained casino and mobile games using Unity",
       "Implemented multiplayer systems and game optimization",
-      "Worked with C# to build core game mechanics"
+      "Developed core gameplay systems for slots, fishing, and crash-based casino games",
+      "Worked with C# to build core game mechanics",
+      "Shipped Billion Balls: Casino game",
+      "Shipped WinnersClub2.0 : Casino game",
+      "Built and launched cross-platform games for iOS, Android, and Windows"
     ]
   },
   {
@@ -45,8 +50,10 @@ const EXPERIENCES = [
     location: "Chakupat, Lalitpur • On-site",
     description: [
       "Contributed to high-quality game development projects using Unity Engine",
+      "Built casino games: slots, lotto, and lottery",
       "Collaborated with design teams to implement game features",
-      "Optimized game performance for mobile platforms"
+      "Optimized game performance for mobile platforms and ios",
+      "Shipped Kauda: Casino game"
     ]
   },
   {
@@ -257,7 +264,7 @@ export default function Home() {
             <div className="font-playful font-bold text-5xl text-primary uppercase">Suman</div>
             
             <div className="text-center space-y-6">
-              <p className="text-muted-foreground font-medium text-lg">this website is homemade :] • Suman 2025</p>
+              <p className="text-muted-foreground font-medium text-lg">Designed & Built by Suman Shrestha</p>
               
               <div className="flex items-center justify-center gap-6">
                 {socials.map((social, i) => (
@@ -275,7 +282,7 @@ export default function Home() {
               </div>
             </div>
             
-            <p className="text-sm text-muted-foreground/60 font-medium uppercase tracking-widest">© 2025 — HANDCRAFTED WITH JOY</p>
+            <p className="text-sm text-muted-foreground/60 font-medium uppercase tracking-widest">© 2025 – {new Date().getFullYear()} · All Rights Reserved</p>
           </div>
         </ScrollReveal>
       </footer>

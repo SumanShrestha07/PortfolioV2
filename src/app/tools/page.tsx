@@ -33,10 +33,10 @@ export default function ArchivePage() {
     : PROJECTS.filter(p => p.category === activeCategory);
 
   const socials = [
-    { href: '#', icon: Linkedin, label: 'LinkedIn' },
-    { href: '#', icon: Facebook, label: 'Facebook' },
-    { href: 'https://github.com', icon: Github, label: 'GitHub' },
-    { href: 'https://play.unity.com', icon: UnityIcon, label: 'Unity Play' },
+    { href: 'https://www.linkedin.com/in/suman-stha-5b2377282/', icon: Linkedin, label: 'LinkedIn' },
+    { href: 'https://www.facebook.com/suman.shrestha.789698', icon: Facebook, label: 'Facebook' },
+    { href: 'https://github.com/SumanShrestha07', icon: Github, label: 'GitHub' },
+    { href: 'https://play.unity.com/en/user/a2ac0fa5-ab73-4624-8153-803fdf7d1f73', icon: UnityIcon, label: 'Unity Play' },
   ];
 
   return (
@@ -68,10 +68,8 @@ export default function ArchivePage() {
 
         {/* Content Section */}
         <section className="relative -mt-20 z-20 max-w-7xl mx-auto w-full px-6 pb-32">
-          {/* Active Category Display */}
           <ScrollReveal delay={100}>
             <div className="flex flex-col items-center mb-12">
-              {/* Filter Buttons */}
               <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
                 {categories.map((cat) => {
                   const isActive = activeCategory === cat;
@@ -92,14 +90,12 @@ export default function ArchivePage() {
                 })}
               </div>
 
-              {/* Selected Tab Display below the buttons */}
               <h2 className="font-playful text-5xl md:text-7xl font-bold text-white/90">
                 - {activeCategory === 'Game' ? 'Games' : activeCategory === 'Website' ? 'Websites' : activeCategory === 'Certification' ? 'Certifications' : activeCategory} -
               </h2>
             </div>
           </ScrollReveal>
 
-          {/* Project Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20">
             {filteredProjects.map((project, idx) => (
               <ScrollReveal key={project.id} delay={(idx % 2) * 100 as any}>
@@ -120,10 +116,10 @@ export default function ArchivePage() {
       <footer className="py-24 px-6 border-t border-white/5 bg-card/20">
         <ScrollReveal>
           <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
-            <div className="font-playful font-bold text-5xl text-primary">KIERAN</div>
+            <div className="font-playful font-bold text-5xl text-primary uppercase">Suman</div>
             
             <div className="text-center space-y-6">
-              <p className="text-muted-foreground font-medium text-lg">this website is homemade :]</p>
+              <p className="text-muted-foreground font-medium text-lg">Designed & Built by Suman Shrestha</p>
               
               <div className="flex items-center justify-center gap-6">
                 {socials.map((social, i) => (
@@ -141,7 +137,9 @@ export default function ArchivePage() {
               </div>
             </div>
             
-            <p className="text-sm text-muted-foreground/60 font-medium uppercase tracking-widest">© 2025 — HANDCRAFTED WITH JOY</p>
+            <p className="text-sm text-muted-foreground/60 font-medium uppercase tracking-widest">
+              © {new Date().getFullYear() > 2025 ? `2025 – ${new Date().getFullYear()}` : '2025'} · All Rights Reserved
+            </p>
           </div>
         </ScrollReveal>
       </footer>

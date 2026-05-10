@@ -31,6 +31,10 @@
   * {
     @apply border-border;
   }
+  html {
+    scrollbar-gutter: stable;
+    overflow-y: scroll;
+  }
   body {
     @apply bg-background text-foreground selection:bg-primary/30;
     font-feature-settings: "rlig" 1, "calt" 1;

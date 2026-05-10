@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useParams, useRouter } from 'next/navigation';
@@ -7,7 +6,7 @@ import { PROJECTS } from '@/lib/projects-data';
 import { Navigation } from '@/components/Navigation';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowLeft, ExternalLink, Calendar, Code, Monitor } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Code, Monitor } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 
 export default function ProjectDetail() {
@@ -33,7 +32,6 @@ export default function ProjectDetail() {
       <main className="flex-1 animate-fade-in">
         {/* Project Hero Header Section */}
         <section className="relative w-full min-h-[70vh] flex flex-col pt-48 pb-12 px-6 lg:px-24 overflow-hidden">
-          {/* Background Image / Decoration */}
           <div className="absolute inset-0 -z-10">
             <Image 
               src={project.thumbnail} 
@@ -56,12 +54,6 @@ export default function ProjectDetail() {
             </ScrollReveal>
 
             <div className="space-y-6 pt-8">
-              <ScrollReveal delay={100}>
-                <p className="text-white/60 font-medium text-xl uppercase tracking-widest font-playful">
-                  Apr 6, 2026, 03:17 AM
-                </p>
-              </ScrollReveal>
-              
               <ScrollReveal delay={200}>
                 <h1 className="font-playful text-7xl md:text-9xl font-bold text-white tracking-tight leading-[0.9] max-w-4xl">
                   {project.title}
@@ -110,7 +102,7 @@ export default function ProjectDetail() {
           </div>
 
           {/* Sidebar Info */}
-          <div className="lg:col-span-4 space-y-12">
+          <div className="lg:col-span-4 space-y-12 lg:sticky lg:top-32 lg:self-start">
             <ScrollReveal delay={200}>
               <div className="glass-panel p-10 lg:p-12 rounded-[2.5rem] border-white/5 bg-grain space-y-10">
                 <div className="space-y-6">
@@ -137,26 +129,30 @@ export default function ProjectDetail() {
                   </p>
                 </div>
 
-                <div className="pt-8">
-                  <Button className="w-full h-16 lg:h-20 bg-accent text-accent-foreground font-playful font-bold text-2xl lg:text-3xl rounded-[1.5rem] hover:scale-105 transition-all shadow-xl shadow-accent/30 btn-playful">
-                    Live Preview <ExternalLink size={24} className="ml-3" />
-                  </Button>
-                </div>
+                {project.link && (
+                  <div className="pt-8">
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <Button className="w-full h-16 lg:h-20 bg-accent text-accent-foreground font-playful font-bold text-2xl lg:text-3xl rounded-[1.5rem] hover:scale-105 transition-all shadow-xl shadow-accent/30 btn-playful">
+                        Live Preview <ExternalLink size={24} className="ml-3" />
+                      </Button>
+                    </a>
+                  </div>
+                )}
               </div>
             </ScrollReveal>
           </div>
         </section>
       </main>
 
-      {/* Detail Footer */}
       <footer className="py-24 px-6 border-t border-white/5 bg-card/20">
         <ScrollReveal>
           <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
-            <div className="font-playful font-bold text-6xl text-primary tracking-tighter">KIERAN</div>
-            
+            <div className="font-playful font-bold text-6xl text-primary tracking-tighter uppercase">Suman</div>
             <div className="text-center space-y-4">
-              <p className="text-muted-foreground font-medium text-xl font-playful">this website is homemade :]</p>
-              <p className="text-sm text-muted-foreground/40 font-bold uppercase tracking-[0.3em]">© 2025 — HANDCRAFTED WITH JOY</p>
+              <p className="text-muted-foreground font-medium text-xl font-playful">Designed & Built by Suman Shrestha</p>
+              <p className="text-sm text-muted-foreground/40 font-bold uppercase tracking-[0.3em]">
+                © {new Date().getFullYear() > 2025 ? `2025 – ${new Date().getFullYear()}` : '2025'} · All Rights Reserved
+              </p>
             </div>
           </div>
         </ScrollReveal>
