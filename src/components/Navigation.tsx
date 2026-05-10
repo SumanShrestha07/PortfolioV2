@@ -8,27 +8,44 @@ import { cn } from '@/lib/utils';
 
 export function Navigation() {
   const pathname = usePathname();
-  const [currentHash, setCurrentHash] = useState('');
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const handleHashChange = () => {
-      setCurrentHash(window.location.hash);
+    if (pathname !== '/') {
+      setActiveSection('archive');
+      return;
+    }
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -40% 0px',
+      threshold: 0
     };
 
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    window.addEventListener('popstate', handleHashChange);
-    
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-      window.removeEventListener('popstate', handleHashChange);
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
     };
-  }, []);
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+    // Track home (hero) and work (portfolio)
+    const sections = ['home', 'work'];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [pathname]);
 
   const links = [
-    { href: '/', label: 'Home' },
-    { href: '/#work', label: 'Portfolio' },
-    { href: '/tools', label: 'Archive' },
+    { href: '/', label: 'Home', id: 'home' },
+    { href: '/#work', label: 'Portfolio', id: 'work' },
+    { href: '/tools', label: 'Archive', id: 'archive' },
   ];
 
   const socials = [
@@ -38,16 +55,6 @@ export function Navigation() {
     { href: '#', icon: Instagram },
     { href: 'https://github.com', icon: Github },
   ];
-
-  const getIsActive = (href: string) => {
-    if (href === '/') {
-      return pathname === '/' && (currentHash === '' || currentHash === '#about');
-    }
-    if (href === '/#work') {
-      return pathname === '/' && currentHash === '#work';
-    }
-    return pathname === href;
-  };
 
   return (
     <div className="fixed top-8 left-0 w-full flex justify-center z-50 px-6">
@@ -61,8 +68,8 @@ export function Navigation() {
           </Link>
 
           <div className="hidden md:flex items-center gap-4">
-            {links.map(({ href, label }) => {
-              const isActive = getIsActive(href);
+            {links.map(({ href, label, id }) => {
+              const isActive = activeSection === id || (id === 'archive' && pathname === '/tools');
 
               return (
                 <Link
@@ -73,14 +80,9 @@ export function Navigation() {
                     isActive ? "text-white" : "text-secondary/70 hover:text-secondary"
                   )}
                   onClick={() => {
-                    const [path, hash] = href.split('#');
-                    // Only update internal state if navigating on the current page to prevent jumping
-                    if (path === pathname || (path === '' && hash)) {
-                      if (hash) {
-                        setCurrentHash('#' + hash);
-                      } else if (path === '/') {
-                        setCurrentHash('');
-                      }
+                    if (pathname === '/' && href.startsWith('/#')) {
+                      const id = href.split('#')[1];
+                      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
                 >

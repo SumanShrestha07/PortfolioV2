@@ -33,7 +33,7 @@ export default function Home() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full overflow-hidden flex flex-col pt-32 pb-8">
+        <section id="home" className="relative w-full overflow-hidden flex flex-col pt-32 pb-8 min-h-[70vh] justify-center">
           <Image 
             src={PlaceHolderImages[0].imageUrl}
             alt="Hero Background"
@@ -63,7 +63,7 @@ export default function Home() {
         </section>
 
         {/* Who am I Section */}
-        <section id="about" className="relative z-10 max-w-6xl mx-auto w-full px-6 pb-20 -mt-6">
+        <section id="about" className="relative z-10 max-w-6xl mx-auto w-full px-6 pb-20 pt-12">
           <ScrollReveal>
             <div className="flex flex-col items-center">
               <h2 className="font-playful text-5xl md:text-6xl font-bold text-white mb-12">
@@ -98,7 +98,7 @@ export default function Home() {
         </section>
 
         {/* Gallery Section */}
-        <section id="work" className="max-w-7xl mx-auto w-full px-6 py-24 space-y-16">
+        <section id="work" className="max-w-7xl mx-auto w-full px-6 py-24 space-y-16 scroll-mt-24">
           <ScrollReveal>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
               <div className="space-y-2">
