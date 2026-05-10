@@ -29,6 +29,10 @@ export default function Home() {
     { href: 'https://github.com', icon: Github },
   ];
 
+  const handleScrollToAbout = () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="flex-1 flex flex-col">
       <Navigation />
@@ -63,12 +67,52 @@ export default function Home() {
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <div className="pt-8 flex gap-4">
-                 <Button size="lg" className="btn-playful rounded-full bg-primary text-primary-foreground font-bold h-14 px-8 text-xl font-playful">
+                 <Button 
+                  onClick={handleScrollToAbout}
+                  size="lg" 
+                  className="btn-playful rounded-full bg-primary text-primary-foreground font-bold h-14 px-8 text-xl font-playful"
+                 >
                   - Who am I? -
                 </Button>
               </div>
             </ScrollReveal>
           </div>
+        </section>
+
+        {/* Who am I Section - Exactly as requested */}
+        <section id="about" className="max-w-6xl mx-auto w-full px-6 py-12 space-y-12">
+          <ScrollReveal>
+            <div className="relative flex flex-col items-center">
+              <div className="absolute left-0 top-0 w-8 h-8 rounded-full bg-primary" />
+              <h2 className="font-playful text-6xl font-bold text-white mb-12">
+                - Who am I? -
+              </h2>
+              
+              <div className="w-full bg-card rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row gap-10 items-start border border-white/5">
+                <div className="relative w-full md:w-[350px] aspect-square rounded-3xl overflow-hidden shrink-0">
+                  <Image 
+                    src="https://picsum.photos/seed/kieran-portrait/600/600"
+                    alt="Kieran Portrait"
+                    fill
+                    className="object-cover"
+                    data-ai-hint="man portrait"
+                  />
+                </div>
+                
+                <div className="space-y-6 text-xl md:text-2xl leading-snug font-playful font-medium">
+                  <p>
+                    I'm <span className="text-secondary">Kieran</span>, known as <span className="text-secondary">althruist</span> online. I am an 18 y/o in Malta, reading for <span className="text-secondary">Bachelors of Science (Hons) in Digital Games Development.</span>
+                  </p>
+                  <p>
+                    I like to do a variety of things;
+                  </p>
+                  <p>
+                    Ranging from <span className="text-secondary">3D Art/Animation</span> (using <span className="text-secondary">Blender</span>), <span className="text-secondary">Music-Making</span>, <span className="text-secondary">Coding</span> in several languages, <span className="text-secondary">Concept Art</span>, <span className="text-secondary">Sound Design</span>, <span className="text-secondary">Photography</span>.. anything creative you can think of I probably do it!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </section>
 
         {/* Gallery Section */}
@@ -111,24 +155,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        {/* About Preview Section */}
-        <ScrollReveal>
-          <section className="max-w-4xl mx-auto w-full px-6 py-24 text-center space-y-8">
-            <div className="inline-flex items-center gap-2 text-primary text-sm font-bold tracking-widest uppercase">
-              <Sparkles size={20} /> About Me
-            </div>
-            <h2 className="font-playful text-6xl font-bold">Making stuff is <span className="italic text-secondary">fun</span>.</h2>
-            <p className="text-2xl text-muted-foreground leading-relaxed font-playful">
-              I've been breaking and making games since I was 10. Now I spend my time balancing technical architecture with creative playfulness. Whether it's a procedural universe or a simple drum loop, I just love the process of bringing things to life.
-            </p>
-            <div className="pt-8">
-              <Button variant="outline" className="btn-playful rounded-full border-primary/50 text-primary font-bold h-14 px-10 text-xl font-playful hover:bg-primary/10">
-                Let's talk!
-              </Button>
-            </div>
-          </section>
-        </ScrollReveal>
       </main>
 
       <footer className="py-20 px-6 border-t border-white/5 mt-24">
