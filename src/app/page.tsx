@@ -47,13 +47,13 @@ export default function Home() {
           <div className="relative z-10 max-w-7xl mx-auto w-full px-6 space-y-10">
             <ScrollReveal>
               <h1 className="font-playful text-7xl md:text-[11rem] font-bold tracking-tight text-white leading-[0.8]">
-                Hiya, i'm <span className="text-primary">Kieran!</span>
+                Hi, i'm <span className="text-primary">Suman!</span>
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <div className="space-y-4 bg-slate-950/40 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white/5 inline-block">
                 <p className="text-3xl md:text-6xl font-playful font-bold text-white leading-tight">
-                  A Game Developer, Musician, Content Creator
+                  A Game Developer
                 </p>
                 <p className="text-xl md:text-3xl text-secondary font-playful font-medium opacity-90">
                   (& a lil' bit of everything else :])
