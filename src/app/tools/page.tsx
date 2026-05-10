@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 export default function ArchivePage() {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
 
-  const categories: (Category | 'All')[] = ['All', 'Website', 'Game', 'Music'];
+  const categories: (Category | 'All')[] = ['All', 'Website', 'Game', 'Music', 'Certification'];
 
   const filteredProjects = activeCategory === 'All' 
     ? PROJECTS 
@@ -65,7 +65,7 @@ export default function ArchivePage() {
                           : "bg-secondary text-white hover:bg-secondary/80 shadow-secondary/20"
                       )}
                     >
-                      {cat}
+                      {cat === 'Game' ? 'Games' : cat === 'Website' ? 'Websites' : cat === 'Music' ? 'Music' : cat === 'Certification' ? 'Certifications' : cat}
                     </button>
                   );
                 })}
@@ -73,7 +73,7 @@ export default function ArchivePage() {
 
               {/* Selected Tab Display below the buttons */}
               <h2 className="font-playful text-5xl md:text-7xl font-bold text-white/90">
-                - {activeCategory} -
+                - {activeCategory === 'Game' ? 'Games' : activeCategory === 'Website' ? 'Websites' : activeCategory === 'Certification' ? 'Certifications' : activeCategory} -
               </h2>
             </div>
           </ScrollReveal>

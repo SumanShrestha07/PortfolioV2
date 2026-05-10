@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -14,11 +13,11 @@ import { cn } from '@/lib/utils';
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
 
-  // Updated to include Website category
-  const categories: (Category | 'All')[] = ['All', 'Game', 'Website'];
+  // Updated to include Website and Certification categories
+  const categories: (Category | 'All')[] = ['All', 'Game', 'Website', 'Certification'];
 
   const filteredProjects = activeCategory === 'All' 
-    ? PROJECTS.filter(p => p.category === 'Game' || p.category === 'Website') 
+    ? PROJECTS.filter(p => p.category === 'Game' || p.category === 'Website' || p.category === 'Certification') 
     : PROJECTS.filter(p => p.category === activeCategory);
 
   const socials = [
@@ -126,7 +125,7 @@ export default function Home() {
                       {isActive && (
                         <div className="absolute inset-0 bg-secondary rounded-full -z-10 animate-fade-in shadow-xl shadow-secondary/30" />
                       )}
-                      {cat === 'Game' ? 'Games' : cat === 'Website' ? 'Websites' : cat}
+                      {cat === 'Game' ? 'Games' : cat === 'Website' ? 'Websites' : cat === 'Certification' ? 'Certifications' : cat}
                     </button>
                   );
                 })}

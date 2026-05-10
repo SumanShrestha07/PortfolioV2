@@ -1,6 +1,6 @@
 import { PlaceHolderImages } from './placeholder-images';
 
-export type Category = 'Game' | 'Website' | 'Music' | 'Archive' | 'Tools';
+export type Category = 'Game' | 'Website' | 'Music' | 'Archive' | 'Tools' | 'Certification';
 
 export interface Project {
   id: string;
@@ -48,6 +48,28 @@ export const PROJECTS: Project[] = [
     images: [PlaceHolderImages[0].imageUrl],
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     year: '2025'
+  },
+  {
+    id: 'unity-pro-cert',
+    title: 'Unity Professional Developer',
+    category: 'Certification',
+    summary: 'Official certification for advanced game development and optimization in Unity.',
+    fullDescription: 'This certification validates professional-level skills in Unity game development, including advanced scripting, optimization, and project management for large-scale titles.',
+    thumbnail: 'https://picsum.photos/seed/cert1/800/600',
+    images: ['https://picsum.photos/seed/cert1/800/600'],
+    technologies: ['Unity', 'Game Design', 'Optimization'],
+    year: '2024'
+  },
+  {
+    id: 'frontend-expert-cert',
+    title: 'Frontend Architecture',
+    category: 'Certification',
+    summary: 'Certification for building scalable and performant modern web applications.',
+    fullDescription: 'Focused on advanced React patterns, performance optimization, and architectural decision-making for complex frontend systems.',
+    thumbnail: 'https://picsum.photos/seed/cert2/800/600',
+    images: ['https://picsum.photos/seed/cert2/800/600'],
+    technologies: ['React', 'Next.js', 'Architecture'],
+    year: '2024'
   },
   {
     id: 'synth-waves-ep',
