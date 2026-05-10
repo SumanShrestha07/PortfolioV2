@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -52,12 +53,8 @@ export default function ArchivePage() {
           {/* Active Category Display */}
           <ScrollReveal delay={100}>
             <div className="flex flex-col items-center mb-12">
-              <h2 className="font-playful text-5xl md:text-7xl font-bold text-white/90 mb-12">
-                - {activeCategory} -
-              </h2>
-              
               {/* Filter Buttons */}
-              <div className="flex flex-wrap items-center justify-center gap-4">
+              <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
                 {categories.map((cat) => {
                   const isActive = activeCategory === cat;
                   return (
@@ -76,6 +73,11 @@ export default function ArchivePage() {
                   );
                 })}
               </div>
+
+              {/* Selected Tab Display moved below the buttons */}
+              <h2 className="font-playful text-5xl md:text-7xl font-bold text-white/90">
+                - {activeCategory} -
+              </h2>
             </div>
           </ScrollReveal>
 
