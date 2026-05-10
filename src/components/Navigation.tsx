@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useEffect, useState } from 'react';
@@ -74,10 +73,14 @@ export function Navigation() {
                     isActive ? "text-white" : "text-secondary/70 hover:text-secondary"
                   )}
                   onClick={() => {
-                    if (href.includes('#')) {
-                      setCurrentHash('#' + href.split('#')[1]);
-                    } else {
-                      setCurrentHash('');
+                    const [path, hash] = href.split('#');
+                    // Only update internal state if navigating on the current page to prevent jumping
+                    if (path === pathname || (path === '' && hash)) {
+                      if (hash) {
+                        setCurrentHash('#' + hash);
+                      } else if (path === '/') {
+                        setCurrentHash('');
+                      }
                     }
                   }}
                 >
