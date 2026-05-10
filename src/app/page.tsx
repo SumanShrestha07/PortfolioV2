@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { PROJECTS, Category } from '@/lib/projects-data';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Navigation } from '@/components/Navigation';
-import { Button } from '@/components/ui/button';
 import { Sparkles, Linkedin, MessageCircle, Youtube, Instagram, Github } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -27,10 +26,6 @@ export default function Home() {
     { href: '#', icon: Instagram },
     { href: 'https://github.com', icon: Github },
   ];
-
-  const handleScrollToAbout = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <div className="flex-1 flex flex-col">
@@ -62,17 +57,6 @@ export default function Home() {
                 <p className="text-xl md:text-2xl text-secondary font-playful font-medium">
                   (& a lil' bit of everything else :])
                 </p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <div className="pt-10">
-                 <Button 
-                  onClick={handleScrollToAbout}
-                  size="lg" 
-                  className="btn-playful rounded-full bg-primary text-primary-foreground font-bold h-16 px-10 text-2xl font-playful"
-                 >
-                  - Who am I? -
-                </Button>
               </div>
             </ScrollReveal>
           </div>
