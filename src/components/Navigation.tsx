@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useEffect, useState } from 'react';
@@ -18,12 +17,18 @@ export function Navigation() {
 
     handleHashChange(); // Check initial hash
     window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    // Also check on mount in case we navigated from another page with a hash
+    window.addEventListener('popstate', handleHashChange);
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('popstate', handleHashChange);
+    };
   }, []);
 
   const links = [
     { href: '/', label: 'Home' },
-    { href: '#work', label: 'Portfolio' },
+    { href: '/#work', label: 'Portfolio' },
     { href: '/tools', label: 'Archive' },
   ];
 
@@ -34,6 +39,16 @@ export function Navigation() {
     { href: '#', icon: Instagram },
     { href: 'https://github.com', icon: Github },
   ];
+
+  const getIsActive = (href: string) => {
+    if (href === '/') {
+      return pathname === '/' && currentHash === '';
+    }
+    if (href === '/#work') {
+      return pathname === '/' && currentHash === '#work';
+    }
+    return pathname === href;
+  };
 
   return (
     <div className="fixed top-8 left-0 w-full flex justify-center z-50 px-6">
@@ -48,11 +63,7 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center gap-2">
             {links.map(({ href, label }) => {
-              const isHome = pathname === '/';
-              const isHashLink = href.startsWith('#');
-              const isActive = isHashLink 
-                ? (isHome && currentHash === href)
-                : (pathname === href && currentHash === '');
+              const isActive = getIsActive(href);
 
               return (
                 <Link
@@ -63,8 +74,12 @@ export function Navigation() {
                     isActive ? "text-secondary-foreground" : "text-secondary/70 hover:text-secondary"
                   )}
                   onClick={() => {
-                    if (isHashLink) setCurrentHash(href);
-                    else setCurrentHash('');
+                    // Manually set hash for immediate feedback if it's an internal hash link
+                    if (href.includes('#')) {
+                      setCurrentHash('#' + href.split('#')[1]);
+                    } else {
+                      setCurrentHash('');
+                    }
                   }}
                 >
                   {isActive && (
