@@ -83,7 +83,6 @@ export default function Home() {
         <section id="about" className="max-w-6xl mx-auto w-full px-6 py-12 space-y-12">
           <ScrollReveal>
             <div className="relative flex flex-col items-center">
-              <div className="absolute left-0 top-0 w-8 h-8 rounded-full bg-primary" />
               <h2 className="font-playful text-6xl font-bold text-white mb-12">
                 - Who am I? -
               </h2>
