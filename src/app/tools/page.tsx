@@ -4,10 +4,24 @@ import { useState } from 'react';
 import { PROJECTS, Category } from '@/lib/projects-data';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Navigation } from '@/components/Navigation';
+import { Linkedin, Github, Facebook } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { cn } from '@/lib/utils';
+
+const UnityIcon = ({ size = 28, ...props }: { size?: number } & React.SVGProps<SVGSVGElement>) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 256 256" 
+    fill="currentColor" 
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path d="M128 0L20 62.35v131.3L128 256l108-62.35V62.35L128 0zm90.4 71.6L128 123.8 37.6 71.6 128 19.4l90.4 52.2zM37.6 90.4L118 136.8v99.8l-80.4-46.4V90.4zm100 99.8V136.8l80.4-46.4v99.8l-80.4 46.4z"/>
+  </svg>
+);
 
 export default function ArchivePage() {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
@@ -17,6 +31,13 @@ export default function ArchivePage() {
   const filteredProjects = activeCategory === 'All' 
     ? PROJECTS.filter(p => p.category === 'Website' || p.category === 'Game' || p.category === 'Certification')
     : PROJECTS.filter(p => p.category === activeCategory);
+
+  const socials = [
+    { href: '#', icon: Linkedin, label: 'LinkedIn' },
+    { href: '#', icon: Facebook, label: 'Facebook' },
+    { href: 'https://github.com', icon: Github, label: 'GitHub' },
+    { href: 'https://play.unity.com', icon: UnityIcon, label: 'Unity Play' },
+  ];
 
   return (
     <div className="flex-1 flex flex-col">
@@ -100,10 +121,27 @@ export default function ArchivePage() {
         <ScrollReveal>
           <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
             <div className="font-playful font-bold text-5xl text-primary">KIERAN</div>
-            <div className="text-center space-y-2">
+            
+            <div className="text-center space-y-6">
               <p className="text-muted-foreground font-medium text-lg">this website is homemade :]</p>
-              <p className="text-sm text-muted-foreground/60 font-medium uppercase tracking-widest">© 2025 — HANDCRAFTED WITH JOY</p>
+              
+              <div className="flex items-center justify-center gap-6">
+                {socials.map((social, i) => (
+                  <a 
+                    key={i}
+                    href={social.href} 
+                    className="social-hover-blob text-secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={social.label}
+                  >
+                    <social.icon size={28} strokeWidth={2.5} />
+                  </a>
+                ))}
+              </div>
             </div>
+            
+            <p className="text-sm text-muted-foreground/60 font-medium uppercase tracking-widest">© 2025 — HANDCRAFTED WITH JOY</p>
           </div>
         </ScrollReveal>
       </footer>

@@ -33,10 +33,10 @@ export default function Home() {
     : PROJECTS.filter(p => p.category === activeCategory);
 
   const socials = [
-    { href: '#', icon: Linkedin },
-    { href: '#', icon: Facebook },
-    { href: 'https://github.com', icon: Github },
-    { href: 'https://play.unity.com', icon: UnityIcon },
+    { href: '#', icon: Linkedin, label: 'LinkedIn' },
+    { href: '#', icon: Facebook, label: 'Facebook' },
+    { href: 'https://github.com', icon: Github, label: 'GitHub' },
+    { href: 'https://play.unity.com', icon: UnityIcon, label: 'Unity Play' },
   ];
 
   return (
@@ -170,6 +170,7 @@ export default function Home() {
                     className="social-hover-blob text-secondary"
                     target="_blank"
                     rel="noopener noreferrer"
+                    title={social.label}
                   >
                     <social.icon size={28} strokeWidth={2.5} />
                   </a>
