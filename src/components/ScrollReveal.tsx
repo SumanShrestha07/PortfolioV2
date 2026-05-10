@@ -22,10 +22,9 @@ export function ScrollReveal({
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
+        // Update visibility state based on intersection
+        // This allows the animation to play both on entry and exit
+        setIsVisible(entry.isIntersecting);
       },
       {
         threshold,
