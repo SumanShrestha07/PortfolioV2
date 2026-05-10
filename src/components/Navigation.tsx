@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useEffect, useState } from 'react';
@@ -45,7 +46,7 @@ export function Navigation() {
 
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
 
-    const sections = ['home', 'work'];
+    const sections = ['home', 'work', 'experience'];
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
@@ -57,6 +58,7 @@ export function Navigation() {
   const links = [
     { href: '/', label: 'Home', id: 'home' },
     { href: '/#work', label: 'Portfolio', id: 'work' },
+    { href: '/#experience', label: 'Experience', id: 'experience' },
     { href: '/tools', label: 'Archive', id: 'archive' },
   ];
 

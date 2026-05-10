@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { PROJECTS, Category } from '@/lib/projects-data';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Navigation } from '@/components/Navigation';
-import { Linkedin, Github, Facebook } from 'lucide-react';
+import { Linkedin, Github, Facebook, Briefcase } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ScrollReveal } from '@/components/ScrollReveal';
@@ -24,12 +24,51 @@ const UnityIcon = ({ size = 28, ...props }: { size?: number } & React.SVGProps<S
   </svg>
 );
 
+const EXPERIENCES = [
+  {
+    role: "Unity Developer",
+    company: "Shornoga Technology",
+    period: "Jun 2024 — Present",
+    type: "Full-time",
+    location: "Kathmandu, Nepal • On-site",
+    description: [
+      "Developed and maintained casino and mobile games using Unity",
+      "Implemented multiplayer systems and game optimization",
+      "Worked with C# to build core game mechanics"
+    ]
+  },
+  {
+    role: "Unity Developer",
+    company: "Ochrebyte",
+    period: "Feb 2024 — Jun 2024",
+    type: "Full-time",
+    location: "Chakupat, Lalitpur • On-site",
+    description: [
+      "Contributed to high-quality game development projects using Unity Engine",
+      "Collaborated with design teams to implement game features",
+      "Optimized game performance for mobile platforms"
+    ]
+  },
+  {
+    role: "Game Developer Internship",
+    company: "Ochrebyte",
+    period: "Oct 2023 — Jan 2024",
+    type: "Internship",
+    location: "Chakupat, Lalitpur • On-site",
+    description: [
+      "Learned core Unity development workflows and best practices",
+      "Assisted in debugging and prototyping game mechanics",
+      "Gained hands-on experience with C# scripting and Unity UI systems"
+    ]
+  }
+];
+
 export default function Home() {
 
   const dob = new Date(2000, 6, 20); // July 20, 2000
-const today = new Date();
-const age = today.getFullYear() - dob.getFullYear() - 
-  (today < new Date(today.getFullYear(), 6, 20) ? 1 : 0);
+  const today = new Date();
+  const age = today.getFullYear() - dob.getFullYear() - 
+    (today < new Date(today.getFullYear(), 6, 20) ? 1 : 0);
 
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
 
@@ -40,11 +79,12 @@ const age = today.getFullYear() - dob.getFullYear() -
     : PROJECTS.filter(p => p.category === activeCategory);
 
   const socials = [
-  { href: 'https://www.linkedin.com/in/suman-stha-5b2377282/', icon: Linkedin, label: 'LinkedIn' },
-  { href: 'https://www.facebook.com/suman.shrestha.789698', icon: Facebook, label: 'Facebook' },
-  { href: 'https://github.com/SumanShrestha07', icon: Github, label: 'GitHub' },
-  { href: 'https://play.unity.com/en/user/a2ac0fa5-ab73-4624-8153-803fdf7d1f73', icon: UnityIcon, label: 'Unity Play' },
-];
+    { href: 'https://www.linkedin.com/in/suman-stha-5b2377282/', icon: Linkedin, label: 'LinkedIn' },
+    { href: 'https://www.facebook.com/suman.shrestha.789698', icon: Facebook, label: 'Facebook' },
+    { href: 'https://github.com/SumanShrestha07', icon: Github, label: 'GitHub' },
+    { href: 'https://play.unity.com/en/user/a2ac0fa5-ab73-4624-8153-803fdf7d1f73', icon: UnityIcon, label: 'Unity Play' },
+  ];
+
   return (
     <div className="flex-1 flex flex-col">
       <Navigation />
@@ -159,15 +199,65 @@ const age = today.getFullYear() - dob.getFullYear() -
             ))}
           </div>
         </section>
+
+        {/* Experience Section */}
+        <section id="experience" className="max-w-5xl mx-auto w-full px-6 py-32 space-y-16 scroll-mt-24">
+          <ScrollReveal>
+            <div className="space-y-4 text-center">
+              <h2 className="font-playful text-6xl font-bold text-playful-gradient">WORK EXPERIENCE</h2>
+              <p className="text-muted-foreground font-medium text-lg">The professional journey so far.</p>
+            </div>
+          </ScrollReveal>
+
+          <div className="space-y-8">
+            {EXPERIENCES.map((exp, idx) => (
+              <ScrollReveal key={idx} delay={(idx * 100) as any}>
+                <div className="glass-panel p-8 md:p-10 rounded-[2.5rem] border-white/10 hover:border-primary/30 transition-all group bg-grain relative overflow-hidden">
+                  <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <Briefcase size={80} />
+                  </div>
+                  
+                  <div className="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-6">
+                    <div className="space-y-4">
+                      <div className="space-y-1">
+                        <h3 className="font-playful text-3xl md:text-4xl font-bold text-white">
+                          {exp.role} <span className="text-primary">@ {exp.company}</span>
+                        </h3>
+                        <p className="text-secondary font-playful text-xl font-bold tracking-wide">
+                          {exp.period}
+                        </p>
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-4 text-sm text-muted-foreground font-medium uppercase tracking-widest border-l-2 border-primary/30 pl-4">
+                        <span>{exp.type}</span>
+                        <span>•</span>
+                        <span>{exp.location}</span>
+                      </div>
+
+                      <ul className="space-y-3 pt-4">
+                        {exp.description.map((item, i) => (
+                          <li key={i} className="flex items-start gap-3 text-lg md:text-xl text-white/80 font-playful font-medium leading-relaxed">
+                            <span className="text-secondary mt-1.5">—</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </section>
       </main>
 
       <footer className="py-24 px-6 border-t border-white/5 bg-card/20">
         <ScrollReveal>
           <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
-            <div className="font-playful font-bold text-5xl text-primary">KIERAN</div>
+            <div className="font-playful font-bold text-5xl text-primary uppercase">Suman</div>
             
             <div className="text-center space-y-6">
-              <p className="text-muted-foreground font-medium text-lg">this website is homemade :] • Kieran 2025</p>
+              <p className="text-muted-foreground font-medium text-lg">this website is homemade :] • Suman 2025</p>
               
               <div className="flex items-center justify-center gap-6">
                 {socials.map((social, i) => (
@@ -185,7 +275,7 @@ const age = today.getFullYear() - dob.getFullYear() -
               </div>
             </div>
             
-            <p className="text-sm text-muted-foreground/60 font-medium">© 2025 — HANDCRAFTED WITH JOY</p>
+            <p className="text-sm text-muted-foreground/60 font-medium uppercase tracking-widest">© 2025 — HANDCRAFTED WITH JOY</p>
           </div>
         </ScrollReveal>
       </footer>
