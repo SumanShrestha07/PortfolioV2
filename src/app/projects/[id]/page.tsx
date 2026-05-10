@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useParams, useRouter } from 'next/navigation';
@@ -7,7 +8,7 @@ import { Navigation } from '@/components/Navigation';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, ExternalLink, Calendar, Code, Monitor } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 export default function ProjectDetail() {
   const { id } = useParams();
@@ -19,119 +20,146 @@ export default function ProjectDetail() {
       <div className="min-h-screen flex flex-col items-center justify-center p-6 space-y-4">
         <h1 className="text-4xl font-headline font-bold">Project Not Found</h1>
         <Button onClick={() => router.push('/')} variant="outline" className="rounded-full">
-          <ArrowLeft className="mr-2" size={16} /> Back to Archive
+          <ArrowLeft className="mr-2" size={16} /> Back to Home
         </Button>
       </div>
     );
   }
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col bg-background">
       <Navigation />
       
       <main className="flex-1 animate-fade-in">
-        <div className="max-w-7xl mx-auto w-full px-6 py-12 lg:py-20 space-y-12 lg:space-y-20">
-          
-          {/* Header Info */}
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-            <div className="lg:col-span-8 space-y-6">
+        {/* Project Hero Header Section */}
+        <section className="relative w-full min-h-[70vh] flex flex-col pt-48 pb-12 px-6 lg:px-24 overflow-hidden">
+          {/* Background Image / Decoration */}
+          <div className="absolute inset-0 -z-10">
+            <Image 
+              src={project.thumbnail} 
+              alt={project.title} 
+              fill 
+              className="object-cover opacity-20 grayscale brightness-50 scale-105"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          </div>
+
+          <div className="max-w-7xl mx-auto w-full space-y-12">
+            <ScrollReveal>
               <Button 
                 onClick={() => router.back()} 
-                variant="ghost" 
-                className="p-0 hover:bg-transparent text-muted-foreground hover:text-primary mb-4"
+                className="bg-secondary hover:bg-secondary/80 text-white font-playful font-bold rounded-2xl px-10 py-7 text-2xl transition-all hover:scale-105 shadow-xl shadow-secondary/20"
               >
-                <ArrowLeft size={18} className="mr-2" /> Back to Collection
+                Go Back
               </Button>
-              <h1 className="font-headline text-5xl lg:text-8xl font-bold tracking-tighter leading-none">
-                {project.title}
-              </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed font-light">
-                {project.summary}
-              </p>
-            </div>
-            
-            <div className="lg:col-span-4 space-y-8 glass-panel p-8 rounded-2xl border-white/5">
-              <div className="grid grid-cols-2 gap-8">
-                <div className="space-y-1">
-                  <span className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-primary">
-                    <Calendar size={12} /> Year
-                  </span>
-                  <div className="text-lg font-medium">{project.year}</div>
-                </div>
-                <div className="space-y-1">
-                  <span className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-primary">
-                    <Monitor size={12} /> Service
-                  </span>
-                  <div className="text-lg font-medium">{project.category}</div>
-                </div>
-              </div>
+            </ScrollReveal>
 
-              <div className="space-y-4">
-                <span className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-primary">
-                  <Code size={12} /> Stack
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map(tech => (
-                    <Badge key={tech} variant="secondary" className="bg-white/5 hover:bg-white/10 text-xs font-medium py-1 px-3">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-
-              <Button className="w-full h-12 rounded-xl bg-accent text-accent-foreground font-bold hover:opacity-90">
-                Live Preview <ExternalLink size={16} className="ml-2" />
-              </Button>
-            </div>
-          </section>
-
-          {/* Main Content Images */}
-          <section className="space-y-6 lg:space-y-12">
-            <div className="aspect-video relative overflow-hidden rounded-3xl border border-white/10">
-              <Image 
-                src={project.images[0]} 
-                alt={project.title} 
-                fill 
-                className="object-cover"
-                priority
-              />
-            </div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
-              <div className="prose prose-invert max-w-none space-y-6">
-                <h3 className="font-headline text-3xl font-bold">The Vision</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  {project.fullDescription}
+            <div className="space-y-6 pt-8">
+              <ScrollReveal delay={100}>
+                <p className="text-white/60 font-medium text-xl uppercase tracking-widest font-playful">
+                  Apr 6, 2026, 03:17 AM
                 </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  The primary challenge was balancing technical performance with high-fidelity visual elements. Through rigorous prototyping and user testing, we developed an interface that feels both powerful and approachable.
-                </p>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={200}>
+                <h1 className="font-playful text-7xl md:text-9xl font-bold text-white tracking-tight leading-[0.9] max-w-4xl">
+                  {project.title}
+                </h1>
+              </ScrollReveal>
+
+              <ScrollReveal delay={300}>
+                <div className="flex flex-wrap items-center gap-4 pt-4">
+                  <Badge className="bg-primary text-primary-foreground font-playful font-bold px-8 py-3 rounded-2xl text-xl lg:text-2xl border-none shadow-lg shadow-primary/20">
+                    Featured
+                  </Badge>
+                  <Badge className="bg-secondary text-white font-playful font-bold px-8 py-3 rounded-2xl text-xl lg:text-2xl border-none shadow-lg shadow-secondary/20 uppercase">
+                    {project.category}
+                  </Badge>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Detailed Content Section */}
+        <section className="max-w-7xl mx-auto w-full px-6 lg:px-24 py-24 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+          {/* Main Column */}
+          <div className="lg:col-span-8 space-y-16">
+            <ScrollReveal>
+              <div className="space-y-8">
+                <h2 className="font-playful text-5xl font-bold text-secondary">The Vision</h2>
+                <div className="prose prose-invert max-w-none">
+                  <p className="text-2xl lg:text-3xl text-white/80 leading-relaxed font-playful font-medium">
+                    {project.fullDescription}
+                  </p>
+                </div>
               </div>
-              <div className="space-y-6">
-                {project.images.slice(1).map((img, idx) => (
-                  <div key={idx} className="aspect-[4/3] relative overflow-hidden rounded-2xl border border-white/5">
-                    <Image src={img} alt={`${project.title} view ${idx+2}`} fill className="object-cover" />
+            </ScrollReveal>
+
+            <ScrollReveal delay={100}>
+              <div className="aspect-video relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group">
+                <Image 
+                  src={project.thumbnail} 
+                  alt={project.title} 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Sidebar Info */}
+          <div className="lg:col-span-4 space-y-12">
+            <ScrollReveal delay={200}>
+              <div className="glass-panel p-10 lg:p-12 rounded-[2.5rem] border-white/5 bg-grain space-y-10">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-2 text-primary">
+                    <Code size={20} strokeWidth={2.5} />
+                    <h3 className="font-playful text-3xl font-bold">Tech Stack</h3>
                   </div>
-                ))}
-              </div>
-            </div>
-          </section>
+                  <div className="flex flex-wrap gap-3">
+                    {project.technologies.map(tech => (
+                      <Badge key={tech} variant="secondary" className="bg-white/5 hover:bg-white/10 text-white font-medium px-5 py-2 rounded-xl text-lg">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
 
-        </div>
+                <div className="space-y-6 pt-6 border-t border-white/5">
+                  <div className="flex items-center gap-2 text-primary">
+                    <Monitor size={20} strokeWidth={2.5} />
+                    <h3 className="font-playful text-3xl font-bold">Category</h3>
+                  </div>
+                  <p className="text-2xl font-playful font-bold text-secondary uppercase tracking-widest">
+                    {project.category}
+                  </p>
+                </div>
+
+                <div className="pt-8">
+                  <Button className="w-full h-16 lg:h-20 bg-accent text-accent-foreground font-playful font-bold text-2xl lg:text-3xl rounded-[1.5rem] hover:scale-105 transition-all shadow-xl shadow-accent/30 btn-playful">
+                    Live Preview <ExternalLink size={24} className="ml-3" />
+                  </Button>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
       </main>
 
-      <footer className="border-t border-white/5 py-12 px-6 bg-card/30">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="space-y-2">
-            <div className="font-headline font-bold text-lg">PIXEL ARCHIVE</div>
-            <p className="text-xs text-muted-foreground uppercase tracking-widest">© 2024 PORTFOLIO — BUILT WITH PRECISION</p>
+      {/* Detail Footer */}
+      <footer className="py-24 px-6 border-t border-white/5 bg-card/20">
+        <ScrollReveal>
+          <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
+            <div className="font-playful font-bold text-6xl text-primary tracking-tighter">KIERAN</div>
+            
+            <div className="text-center space-y-4">
+              <p className="text-muted-foreground font-medium text-xl font-playful">this website is homemade :]</p>
+              <p className="text-sm text-muted-foreground/40 font-bold uppercase tracking-[0.3em]">© 2025 — HANDCRAFTED WITH JOY</p>
+            </div>
           </div>
-          <div className="flex items-center gap-8">
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary">Twitter</a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary">GitHub</a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary">LinkedIn</a>
-          </div>
-        </div>
+        </ScrollReveal>
       </footer>
     </div>
   );
