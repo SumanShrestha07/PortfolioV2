@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -15,7 +14,7 @@ import { cn } from '@/lib/utils';
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
 
-  const categories: (Category | 'All')[] = ['All', 'Games', 'Music', 'Archive'];
+  const categories: (Category | 'All')[] = ['All', 'Games'];
 
   const filteredProjects = activeCategory === 'All' 
     ? PROJECTS 
@@ -38,7 +37,7 @@ export default function Home() {
       <Navigation />
       
       <main className="flex-1 space-y-24">
-        {/* Hero Section - Adjusted for overlap */}
+        {/* Hero Section */}
         <section className="relative min-h-screen w-full overflow-hidden flex items-center pt-32 pb-20">
           <Image 
             src={PlaceHolderImages[0].imageUrl}

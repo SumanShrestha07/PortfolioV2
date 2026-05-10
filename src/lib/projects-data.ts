@@ -39,17 +39,6 @@ export const PROJECTS: Project[] = [
     year: '2023'
   },
   {
-    id: 'melody-maker',
-    title: 'Melody Maker',
-    category: 'Music',
-    summary: 'An interactive audio-visual sandbox for creating chill-hop beats.',
-    fullDescription: 'Melody Maker combines my passion for music and code. It allows users to place blocks that trigger loops and effects, synchronized to a global master clock.',
-    thumbnail: PlaceHolderImages[3].imageUrl,
-    images: [PlaceHolderImages[3].imageUrl],
-    technologies: ['Tone.js', 'React', 'Three.js'],
-    year: '2024'
-  },
-  {
     id: 'forest-spirits',
     title: 'Forest Spirits',
     category: 'Games',
