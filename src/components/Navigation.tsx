@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Gamepad2, Github, Youtube, Linkedin, Instagram, Home, Archive, MessageCircle } from 'lucide-react';
+import { Gamepad2, Github, Youtube, Linkedin, Instagram, MessageCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function Navigation() {
@@ -24,7 +24,7 @@ export function Navigation() {
 
   return (
     <div className="fixed top-8 left-0 w-full flex justify-center z-50 px-6">
-      <nav className="w-full max-w-5xl bg-slate-950/80 backdrop-blur-md border border-white/5 rounded-2xl px-8 py-4 flex items-center justify-between shadow-2xl">
+      <nav className="w-full max-w-5xl glass-nav bg-grain px-8 py-3 flex items-center justify-between rounded-2xl">
         {/* Logo and Main Nav */}
         <div className="flex items-center gap-10">
           <Link href="/" className="flex items-center group">
@@ -33,19 +33,25 @@ export function Navigation() {
             </div>
           </Link>
 
-          <div className="hidden md:flex items-center gap-10">
-            {links.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className={cn(
-                  "text-lg font-bold transition-all hover:text-secondary font-playful tracking-wide hover:scale-105",
-                  pathname === href ? "text-secondary" : "text-secondary/70"
-                )}
-              >
-                {label}
-              </Link>
-            ))}
+          <div className="hidden md:flex items-center gap-2">
+            {links.map(({ href, label }) => {
+              const isActive = pathname === href;
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  className={cn(
+                    "relative px-6 py-2 text-lg font-bold transition-all font-playful tracking-wide hover:scale-105",
+                    isActive ? "text-secondary-foreground" : "text-secondary/70 hover:text-secondary"
+                  )}
+                >
+                  {isActive && (
+                    <div className="absolute inset-0 bg-secondary rounded-full -z-10 animate-fade-in" />
+                  )}
+                  {label}
+                </Link>
+              );
+            })}
           </div>
         </div>
 
