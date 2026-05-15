@@ -28,7 +28,7 @@ const EXPERIENCES = [
   {
     role: "Unity Developer",
     company: "Shornoga Technology",
-    period: "Jun 2024 — Present",
+    period: "Jun 2024 — May 2026",
     type: "Full-time",
     location: "Kathmandu, Nepal • On-site",
     description: [
@@ -99,14 +99,13 @@ export default function Home() {
       <main className="flex-1">
         {/* Hero Section */}
         <section id="home" className="relative w-full overflow-hidden flex flex-col pt-40 pb-12 min-h-[90vh] justify-center items-center text-center">
-          <Image 
-            src={PlaceHolderImages[0].imageUrl}
-            alt="Hero Background"
-            fill
-            className="object-cover opacity-40 brightness-[0.4]"
-            priority
-            data-ai-hint={PlaceHolderImages[0].imageHint}
-          />
+        <Image 
+          src="/bg.png"
+          alt="Background"
+          fill
+          className="object-cover opacity-80 brightness-[0.8]"
+          priority
+        />
           <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-background" />
           
           <div className="relative z-10 max-w-7xl mx-auto w-full px-6 space-y-12">
