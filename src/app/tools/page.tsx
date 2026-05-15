@@ -46,13 +46,13 @@ export default function ArchivePage() {
       <main className="flex-1">
         {/* Archive Hero Section */}
         <section className="relative w-full min-h-[75vh] overflow-hidden flex flex-col items-center justify-center pt-32 pb-24">
-          <Image 
-            src={PlaceHolderImages[0].imageUrl}
-            alt="Archive Background"
-            fill
-            className="object-cover opacity-40 brightness-50"
-            priority
-          />
+         <Image 
+                   src="/bg.png"
+                   alt="Background"
+                   fill
+                   className="object-cover opacity-80 brightness-[0.8]"
+                   priority
+                 />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
           
           <div className="relative z-10 text-center">
