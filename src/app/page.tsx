@@ -28,7 +28,7 @@ const EXPERIENCES = [
   {
     role: "Unity Developer",
     company: "Shornoga Technology",
-    period: "Jun 2024 — Present",
+    period: "Jun 2024 — May 2026",
     type: "Full-time",
     location: "Kathmandu, Nepal • On-site",
     description: [
