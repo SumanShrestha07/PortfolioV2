@@ -35,6 +35,7 @@ const EXPERIENCES = [
       "Built and maintained integrations with REST APIs and external SDKs",
       "Developed and maintained casino and mobile games using Unity",
       "Implemented multiplayer systems and game optimization",
+      "Unity Addressables system Implemeted",
       "Developed core gameplay systems for slots, fishing, and crash-based casino games",
       "Worked with C# to build core game mechanics",
       "Shipped Billion Balls: Casino game",
