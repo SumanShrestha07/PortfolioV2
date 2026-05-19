@@ -24,6 +24,38 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
+  //kidsGame
+  {
+    id: 'color-play',
+    title: 'Color Play',
+    category: 'Game',
+    featured: true,
+    summary: 'A coloring and drawing game. Simple, fun and creative',
+    fullDescription: 'A fun and creative coloring game where users can draw, color, save their artwork, and easily share it with others.',
+    sections: [
+      {
+        title: 'Features',
+        content: 'Free Draw, Cute Animals ready to color, Save option, Art Gallery, Download and Share options, Missions, Daily Bonus, Notifications'
+      },
+      {
+        title: 'In Progress',
+        content: 'Most features are already completed, including free draw, coloring templates, saving artwork, gallery, download, share options, and notifications. The only remaining work is the Missions system and Daily Bonus feature, which are currently under development.'
+      }
+    ],
+    thumbnail: "/KidsGame/Intro.png",
+    images: [
+      "/KidsGame/main.png",
+      "/KidsGame/art.png",
+      "/KidsGame/draw.png",
+      "/KidsGame/artcollection.png",
+      "/KidsGame/Intro.png",
+    ],
+    technologies: ['Unity', 'C#', 'Android',"Unity Gaming Services","Addressables","RemoteConfig"],
+    year: 'In progress',
+    link: 'https://play.google.com/store/apps/developer?id=Suman+Shrestha',
+    buttonText: 'Coming Soon'
+  },
+
   //TicTacToe
   {
     id: 'tic-tac-toe',
