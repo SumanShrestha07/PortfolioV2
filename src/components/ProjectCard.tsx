@@ -38,7 +38,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Hover Overlay */}
-      <div className="absolute inset-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 backdrop-blur-xl bg-black/60 flex flex-col p-8 lg:p-12">
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-xl bg-black/60 flex flex-col p-8 lg:p-12 pointer-events-none group-hover:pointer-events-auto">
         {/* Top Info */}
         <div className="space-y-2 lg:space-y-4 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500">
           <p className="text-white/60 font-medium text-[10px] lg:text-sm uppercase tracking-widest">
@@ -67,7 +67,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="mt-auto">
           <Link 
             href={`/projects/${project.id}`}
-            className="w-full bg-secondary text-white font-bold text-xl lg:text-3xl font-playful rounded-2xl h-14 lg:h-16 flex items-center justify-center transform translate-y-20 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-xl shadow-secondary/30 hover:scale-[1.02] active:scale-95"
+            className="w-full bg-secondary text-white font-bold text-xl lg:text-3xl font-playful rounded-2xl h-14 lg:h-16 flex items-center justify-center transform translate-y-20 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-xl shadow-secondary/30 active:scale-95"
           >
             Read More
           </Link>
