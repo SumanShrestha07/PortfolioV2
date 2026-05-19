@@ -104,7 +104,7 @@ export default function Home() {
           src="/bg.png"
           alt="Background"
           fill
-          className="object-cover opacity-80 brightness-[0.8]"
+          className="object-cover"
           priority
         />
           <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-background" />
