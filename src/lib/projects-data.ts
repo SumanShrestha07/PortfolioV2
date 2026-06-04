@@ -33,15 +33,19 @@ export const PROJECTS: Project[] = [
     summary: 'A coloring and drawing game. Simple, fun and creative',
     fullDescription: 'A fun and creative coloring game where users can draw, color, save their artwork, and easily share it with others.',
     sections: [
-      {
-        title: 'Features',
-        content: 'Free Draw, Cute Animals ready to color, Save option, Art Gallery, Download and Share options, Missions, Daily Bonus, Notifications'
-      },
-      {
-        title: 'In Progress',
-        content: 'Most features are already completed, including free draw, coloring templates, saving artwork, gallery, download, share options, and notifications. The only remaining work is the Missions system and Daily Bonus feature, which are currently under development.'
-      }
-    ],
+  {
+    title: 'Features',
+    content: 'Free Draw, Cute Animals ready to color, Save option, Art Gallery, Download and Share options, Missions, Daily Bonus, Notifications'
+  },
+  {
+    title: 'Ads',
+    content: 'Implemented ads using Google AdMob mediation, integrating Google AdMob and Unity Ads as ad sources with in-app bidding. Also implemented GDPR (EU) and CCPA (US states) consent management to support both personalized and non-personalized ads. Added an age-gate flow that requests user age before showing consent prompts, ensuring compliance and a safer experience for minors.'
+  },
+  {
+    title: 'In Closed Testing',
+    content: 'Currently in closed testing for the production phase on Google Play Console.'
+  }
+],
     thumbnail: "/KidsGame/Intro.png",
     images: [
       "/KidsGame/main.png",
@@ -50,10 +54,38 @@ export const PROJECTS: Project[] = [
       "/KidsGame/artcollection.png",
       "/KidsGame/Intro.png",
     ],
-    technologies: ['Unity', 'C#', 'Android',"Unity Gaming Services","Addressables","RemoteConfig"],
-    year: 'In progress',
-    link: 'https://play.google.com/store/apps/developer?id=Suman+Shrestha',
-    buttonText: 'Coming Soon'
+    technologies: ['Unity', 'C#', 'Android',"Unity Monetization","GoogleAdmob","RemoteConfig"],
+    year: 'May 10, 2026',
+    link: 'https://play.google.com/store/apps/details?id=com.SumanGameStudio.ColorPlay',
+    buttonText: 'Play Store'
+  },
+   //This is Blast
+  {
+    id: 'this-is-blast!',
+    title: 'This is Blast!',
+    category: 'Game',
+    summary: 'A casual game copy of original this is blast!',
+    fullDescription: 'A fun and engaging casual puzzle game with 20 unique levels. The game uses Scriptable Objects for level management, making content scalable and easy to maintain. Players progress through increasingly challenging stages while enjoying smooth gameplay and rewarding progression.',
+    sections: [
+      {
+      title: 'Features',
+      content: '20 Unique Levels, Scriptable Object-based Level System, Progressive Difficulty,Smooth Gameplay Experience'
+      },
+      {
+      title: 'What I Learned',
+      content: 'Learned how to design and structure a level-based game using Scriptable Objects for scalable level management. Improved understanding of game progression design, balancing difficulty across 20 levels, and implementing smooth gameplay flow in Unity. Gained experience with building production-ready mobile game architecture and preparing a project for Google Play closed testing.'
+      }
+    ],
+    thumbnail: "/ThisIsBlast/main.png",
+    images: [
+      "/ThisIsBlast/main.png",
+      "/ThisIsBlast/win.png",
+      "/ThisIsBlast/lose.png",
+    ],
+    technologies: ['Unity', 'C#', 'WebGl'],
+    year: 'June 4, 2026',
+    link: 'https://play.unity.com/en/games/fb9013fc-1a73-4f78-bb98-d558737a5604/this-is-blast',
+    buttonText: 'Play on Browser'
   },
 
   //TicTacToe
