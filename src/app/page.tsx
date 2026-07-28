@@ -158,7 +158,7 @@ export default function Home() {
                   </div>
                   
                   <p>
-                  Ranging from <span className="text-secondary">Game Development</span> (using <span className="text-secondary">Unity & unReal</span>), <span className="text-secondary">Mobile Game Development</span>, <span className="text-secondary">Casino Games</span>, <span className="text-secondary">C# Programming</span>, <span className="text-secondary">Multiplayer Systems</span>, <span className="text-secondary">Game Optimization</span>.. anything creative you can think of I probably do it!
+                  Ranging from <span className="text-secondary">Game Development</span> (using <span className="text-secondary">Unity & unReal</span>), <span className="text-secondary">Mobile Game Development</span>, <span className="text-secondary">Casino Games</span>, <span className="text-secondary">C# Programming</span>, <span className="text-secondary">C++ Programming</span>, <span className="text-secondary">Blueprints</span>, <span className="text-secondary">Multiplayer Systems</span>, <span className="text-secondary">Game Optimization</span>.. anything creative you can think of I probably do it!
                   </p>
                 </div>
               </div>
