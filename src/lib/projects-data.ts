@@ -80,7 +80,7 @@ export const PROJECTS: Project[] = [
     images: [
       "/ThisIsBlast/main.png",
       "/ThisIsBlast/win.png",
-      "/ThisIsBlast/lose.png",
+      "/ThisIsBlast/.png",
     ],
     technologies: ['Unity', 'C#', 'WebGl'],
     year: 'June 4, 2026',
