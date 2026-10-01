@@ -40,10 +40,6 @@ export const PROJECTS: Project[] = [
   {
     title: 'Ads',
     content: 'Implemented ads using Google AdMob mediation, integrating Google AdMob and Unity Ads as ad sources with in-app bidding. Also implemented GDPR (EU) and CCPA (US states) consent management to support both personalized and non-personalized ads. Added an age-gate flow that requests user age before showing consent prompts, ensuring compliance and a safer experience for minors.'
-  },
-  {
-    title: 'In Closed Testing',
-    content: 'Currently in closed testing for the production phase on Google Play Console.'
   }
 ],
     thumbnail: "/KidsGame/Intro.png",
@@ -56,8 +52,8 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ['Unity', 'C#', 'Android',"Unity Monetization","GoogleAdmob","RemoteConfig"],
     year: 'May 10, 2026',
-    link: 'https://play.google.com/store/apps/details?id=com.SumanGameStudio.ColorPlay',
-    buttonText: 'Play Store'
+    link: 'https://play.google.com/store/apps/details?id=com.SumanGameStudio.ColorPlay&pcampaignid=web_share',
+    buttonText: 'Play Store Link'
   },
    //This is Blast
   {
